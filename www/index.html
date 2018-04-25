@@ -21,25 +21,36 @@
           <link rel="stylesheet" type="text/css" href="css/login.css" />
   </head>
   <body onload="onDeviceReady()">
+
+
+  <!----------------------------------Tab 0: Nav Bar---------------------------------------->
     <ul class="tab" id='tabList'>
-      <li><a href="#" class="tabLink" id="home" onclick="showTab(event, 'Red'  )">Red  </a></li>
+      <li><a href="#" class="tabLink" id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'Green')">Green</a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'Blue' )">Blue </a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'About')">About</a></li>
     </ul>
 
+  <!----------------------------------Tab 1: Log In Page---------------------------------->
 
-    <div id="Red"   class="tabContent active" style="background-color: #f1f1f1">
+    <div id="LogIn"   class="tabContent active" style="background-color: #f1f1f1">
       <div id='loginBody'>
         <h3 id='loginHeading'>Study Buddy</h3>
-
-          <div class='loginLabelBlock'><label class='loginLabel'>Username: </label> <input class='loginInput' type='text' id='asurite' placeholder="ASURite"></div>
-          <div class='loginLabelBlock'><label class='loginLabel'>Password: </label> <input class='loginInput' type='Password' ></div>
-
+          <div class='loginLabelBlock'>
+              <label class='loginLabel'>Username: </label>
+              <input class='loginInput' type='text' id='asurite' placeholder="ASURite">
+          </div>
+          <div class='loginLabelBlock'>
+              <label class='loginLabel'>Password: </label>
+              <input class='loginInput' type='Password' >
+          </div>
           <button id='loginButton' type='button' onclick='login()'>Log In</button>
-
       </div>
     </div>
+
+
+
+  <!----------------------------------Tab 1: Home Page---------------------------------->
 
     <div id="Green"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
       <h3>Success!</h3>

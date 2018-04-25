@@ -17,7 +17,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function showHomeTab() {
-  document.getElementById('home').click();
+  document.getElementById('login').click();
 }
 
 /******************************************************************************/
@@ -65,7 +65,7 @@ let login = () => {
     document.getElementById("usernameOutput").innerHTML = `Welcome, ${sessionStorage.getItem("username")}`;
 
     document.getElementById('tabList').style.marginLeft = "0";
-    document.getElementById('home').style.display = "none";
+    document.getElementById('login').style.display = "none";
     document.getElementById('tabList').style.height = "auto";
 
 
