@@ -30,6 +30,7 @@
   <!----------------------------------Tab 0: Nav Bar---------------------------------------->
     <ul class="tab" id='tabList'>
       <li><a href="#" class="tabLink" id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
+      <li><a href="#" class="tabLink" id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'Green')">Green</a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'Blue' )">Blue </a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'About')">About</a></li>
@@ -48,15 +49,24 @@
               <label class='loginLabel'>Password: </label>
               <input class='loginInput' type='Password' >
           </div>
-          <button id='loginButton' type='button' onclick='login()'>Log In</button>
-
           <p id='error'>Woops! Invalid username or password</p>
+          <button id='loginButton' type='button' onclick='login()'>Log In</button>
+          <button id='createButton' type='button' onclick='create()'>Create</button>
+
+      </div>
+    </div>
+
+      <!-------------------------------Tab 2: Create Account Page---------------------------------->
+
+    <div id="createAccount"   class="tabContent" style="background-color: #f1f1f1">
+      <div id='loginBody'>
+
       </div>
     </div>
 
 
 
-  <!----------------------------------Tab 1: Home Page---------------------------------->
+  <!----------------------------------Tab 3: Home Page---------------------------------->
 
     <div id="Green"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
       <h3>Success!</h3>

@@ -64,3 +64,7 @@ let login = () => {
     MySql.Execute(`SELECT id from login where username = "${username}"`, MySql._internalLoginCallback);
 
 }
+
+let create = () => {
+    document.getElementById('create').click();
+}

@@ -11,11 +11,7 @@ var MySql = {
                     return;
                 } else {
                     document.getElementById('error').style.display = "none";
-
-
                     let userId = queryReturned.Result[0].id;
-
-
                     sessionStorage.setItem("id", userId);
                     document.getElementById("usernameOutput").innerHTML = `Welcome, ${sessionStorage.getItem("username")}. Your ID is: ${sessionStorage.getItem("id")}.`;
                     document.getElementById('tabList').style.marginLeft = "0";
