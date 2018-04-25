@@ -1,7 +1,10 @@
 #loginBody{
   height: 100vh;
   width: 100vw;
-  background-color: #00FFFF;
+  background: rgb(2,0,36);
+  background: -webkit-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: -o-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
   margin: 0;
   padding: 0;
   z-index: 10;
@@ -16,6 +19,43 @@
 }
 
 .loginLabel {
-  width: 20vw;
+  width: 40vw;
+  font-size: 6vw;
+  text-align: center;
   display: inline-block;
+}
+
+.loginInput {
+  background-color: transparent;
+  border-bottom-color: white;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  width: 50vw;
+  font-size: 4vw;
+}
+
+.loginInput:focus {
+  outline:none;
+}
+
+.loginInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: .5; /* Firefox */
+}
+
+
+
+.loginLabelBlock {
+  margin: 2vh 0;
+}
+
+#loginButton {
+  margin-top: 9vh;
+  margin-left: 32vw;
+  width: 32vw;
+  height: 10vw;
+  background-color: white;
+  border-style: none;
+  font-size: 5vw;
 }
