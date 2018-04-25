@@ -14,23 +14,15 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 
-function onDeviceReady(){
-    document.getElementById('tabList').style.marginLeft = "-99999px";
-  showHomeTab();
-  // console.log(document.getElementById('tabList'));
 
-}
-
-let login = () => {
-    document.getElementById('secondPage').click();
-    document.getElementById('tabList').style.marginLeft = "0";
-    document.getElementById('home').style.display = "none";
-    console.log('test');
-}
 
 function showHomeTab() {
   document.getElementById('home').click();
 }
+
+/******************************************************************************/
+/***********************************Tabs***************************************/
+/******************************************************************************/
 
 function showTab(event, tabName) {
     // Declare all variables
@@ -52,4 +44,31 @@ function showTab(event, tabName) {
     // Show the current tab, and add an "active" class to the link
     document.getElementById(tabName).style.display = "block";
     event.currentTarget.className += " active";
+}
+
+/******************************************************************************/
+/*******************************End Tabs***************************************/
+/******************************************************************************/
+
+/*hide nav on device ready and show the login screen*/
+function onDeviceReady(){
+    document.getElementById('tabList').style.marginLeft = "-99999px";
+    document.getElementById('tabList').style.height = "0vh";
+    showHomeTab();
+}
+
+/*take the info, create a session variable, pass to next page, enable the next page navbar*/
+let login = () => {
+    let username = document.getElementById('asurite').value;
+    sessionStorage.setItem("username", username);
+
+    document.getElementById("usernameOutput").innerHTML = `Welcome, ${sessionStorage.getItem("username")}`;
+
+    document.getElementById('tabList').style.marginLeft = "0";
+    document.getElementById('home').style.display = "none";
+    document.getElementById('tabList').style.height = "auto";
+
+
+    document.getElementById('secondPage').click();
+
 }

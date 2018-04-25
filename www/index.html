@@ -18,6 +18,7 @@
           media-src *" />
 
           <link rel="stylesheet" type="text/css" href="css/main.css" />
+          <link rel="stylesheet" type="text/css" href="css/login.css" />
   </head>
   <body onload="onDeviceReady()">
     <ul class="tab" id='tabList'>
@@ -29,18 +30,20 @@
 
 
     <div id="Red"   class="tabContent active" style="background-color: #f1f1f1">
-      <h3>Log In</h3>
-      <p>
-        <label>Username: </label> <input type='text' placeholder="ASURite">
-        <label>Password: </label> <input type='Password' >
+      <div id='loginBody'>
+        <h3 id='loginHeading'>Study Buddy</h3>
 
-        <button type='button' onclick='login()'>submit</button>
-      </p>
+          <div><label class='loginLabel'>Username: </label> <input type='text' id='asurite' placeholder="ASURite"></div>
+          <div><label class='loginLabel'>Password: </label> <input type='Password' ></div>
+
+          <button type='button' onclick='login()'>submit</button>
+
+      </div>
     </div>
 
     <div id="Green"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
       <h3>Success!</h3>
-      </p>
+      <p id='usernameOutput'></p>
     </div>
 
     <script type="text/javascript" src="./js/main.js"></script>
