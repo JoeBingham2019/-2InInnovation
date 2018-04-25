@@ -23,6 +23,8 @@ function onDeviceReady(){
 
 let login = () => {
     document.getElementById('secondPage').click();
+    document.getElementById('tabList').style.marginLeft = "0";
+    document.getElementById('home').style.display = "none";
     console.log('test');
 }
 
