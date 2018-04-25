@@ -13,12 +13,17 @@
 /* wait until all phonegap/cordova is loaded then call onDeviceReady*/
 document.addEventListener("deviceready", onDeviceReady, false);
 
+
 function onDeviceReady(){
+    document.getElementById('tabList').style.marginLeft = "-99999px";
   showHomeTab();
+  // console.log(document.getElementById('tabList'));
+
 }
 
 let login = () => {
     document.getElementById('secondPage').click();
+    console.log('test');
 }
 
 function showHomeTab() {
