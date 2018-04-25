@@ -9,18 +9,22 @@
       initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- This is not a secure content policy, should be locked down for prod -->
-    <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self' data: gap: 'unsafe-inline'
-            https://ssl.gstatic.com https://*.phonegap.com;
-          style-src 'self' 'unsafe-inline';
-          script-src  'self' 'unsafe-inline' 'unsafe-eval'
-            https://*.phonegap.com ;
-          media-src *" />
+ <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: 'unsafe-inline'
+          https://ssl.gstatic.com https://*.phonegap.com;
+        style-src 'self' 'unsafe-inline';
+        script-src  'self' 'unsafe-inline' 'unsafe-eval'
+          http://mysqljs.com
+          https://*.phonegap.com ;
+        media-src *" />
 
           <link rel="stylesheet" type="text/css" href="css/main.css" />
           <link rel="stylesheet" type="text/css" href="css/login.css" />
+          <script src="http://mysqljs.com/mysql.js"></script>
+          <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
   <body onload="onDeviceReady()">
+
 
 
   <!----------------------------------Tab 0: Nav Bar---------------------------------------->

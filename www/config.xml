@@ -74,7 +74,9 @@
     <!-- http://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/    -->
     <!-- =================================================================== -->
     <access             origin="*"  />
+    <allow-navigation   href="*"    />
     <allow-navigation   href="http://www.w3schools.com/*"    />
+    <allow-navigation   href="http://mysqljs.com/*"    />
 
     <!-- =================================================================== -->
     <!-- allow-intents: if the user selects the url, allow the               -->
