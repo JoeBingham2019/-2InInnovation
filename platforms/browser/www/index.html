@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>#2 In Innovation</title>
+
+    <meta name="viewport"
+      content="width=device-width, user-scalable=no,
+      initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <!-- This is not a secure content policy, should be locked down for prod -->
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: gap: 'unsafe-inline'
+            https://ssl.gstatic.com https://*.phonegap.com;
+          style-src 'self' 'unsafe-inline';
+          script-src  'self' 'unsafe-inline' 'unsafe-eval'
+            https://*.phonegap.com ;
+          media-src *" />
+
+          <link rel="stylesheet" type="text/css" href="css/main.css" />
+  </head>
+  <body>
+    <ul class="tab">
+      <li><a href="#" class="tabLink" id="home" onclick="showTab(event, 'Red'  )">Red  </a></li>
+      <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'Green')">Green</a></li>
+      <li><a href="#" class="tabLink"           onclick="showTab(event, 'Blue' )">Blue </a></li>
+      <li><a href="#" class="tabLink"           onclick="showTab(event, 'About')">About</a></li>
+    </ul>
+
+
+    <div id="Red"   class="tabContent active" style="background-color: rgba(255, 0, 0, 0.650)">
+      <h3>Red</h3>
+      <p>
+        Red is the color at the longer-wavelengths end of the spectrum of
+        visible light next to orange, at the opposite end from violet. Red
+        color has a predominant light wavelength of roughly 620–740
+        nanometers. Light with a longer wavelength than red but shorter
+        than terahertz radiation and microwave is called infrared.
+
+        <button type='button' onClick='login'>submit</button>
+      </p>
+    </div>
+
+    <div id="Green"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
+      <h3>Green</h3>
+      <p>
+        Red is the color at the longer-wavelengths end of the spectrum of
+        visible light next to orange, at the opposite end from violet. Red
+        color has a predominant light wavelength of roughly 620–740
+        nanometers. Light with a longer wavelength than red but shorter
+        than terahertz radiation and microwave is called infrared.
+
+        <button type='button' onClick='login'>submit</button>
+      </p>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+
+  </body>
+</html>
