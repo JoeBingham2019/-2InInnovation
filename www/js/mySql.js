@@ -1,14 +1,28 @@
 var MySql = {
-    _internalCallback : function(queryReturned) {
+    _internalLoginCallback : function(queryReturned) {
 
 
             if (!queryReturned.Success) {
                 console.log(queryReturned.Error);
                 alert(queryReturned.Error)
             } else {
-                console.log(queryReturned.Result);
-                document.getElementById("output").innerHTML =
-                    JSON.stringify(queryReturned.Result, null, 2);
+                if(queryReturned.Result.length === 0){
+                    document.getElementById('error').style.display = "block";
+                    return;
+                } else {
+                    document.getElementById('error').style.display = "none";
+
+
+                    let userId = queryReturned.Result[0].id;
+
+
+                    sessionStorage.setItem("id", userId);
+                    document.getElementById("usernameOutput").innerHTML = `Welcome, ${sessionStorage.getItem("username")}. Your ID is: ${sessionStorage.getItem("id")}.`;
+                    document.getElementById('tabList').style.marginLeft = "0";
+                    document.getElementById('login').style.display = "none";
+                    document.getElementById('tabList').style.height = "auto";
+                    document.getElementById('secondPage').click();
+                }
             }
 
     },

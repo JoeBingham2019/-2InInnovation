@@ -61,16 +61,6 @@ function onDeviceReady(){
 let login = () => {
     let username = document.getElementById('asurite').value;
     sessionStorage.setItem("username", username);
-
-    MySql.Execute(`SELECT id from login where username = "${username}"`, MySql._internalCallback);
-
-    document.getElementById("usernameOutput").innerHTML = `Welcome, ${sessionStorage.getItem("username")}`;
-
-    document.getElementById('tabList').style.marginLeft = "0";
-    document.getElementById('login').style.display = "none";
-    document.getElementById('tabList').style.height = "auto";
-
-
-    document.getElementById('secondPage').click();
+    MySql.Execute(`SELECT id from login where username = "${username}"`, MySql._internalLoginCallback);
 
 }
