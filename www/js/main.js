@@ -68,3 +68,7 @@ let login = () => {
 let create = () => {
     document.getElementById('create').click();
 }
+
+let home = () => {
+    document.getElementById('login').click();
+}

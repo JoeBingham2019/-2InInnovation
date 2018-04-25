@@ -20,6 +20,7 @@
 
           <link rel="stylesheet" type="text/css" href="css/main.css" />
           <link rel="stylesheet" type="text/css" href="css/login.css" />
+          <link rel="stylesheet" type="text/css" href="css/create.css" />
           <script src="http://mysqljs.com/mysql.js"></script>
           <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
@@ -59,8 +60,34 @@
       <!-------------------------------Tab 2: Create Account Page---------------------------------->
 
     <div id="createAccount"   class="tabContent" style="background-color: #f1f1f1">
-      <div id='loginBody'>
+      <div id='createBody'>
+        <br />
+        <br />
+        <div class='createLabelBlock'>
+              <label class='createLabel'>Username: </label>
+              <input class='createInput' type='text' id='asurite' placeholder="ASURite">
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>First Name: </label>
+              <input class='createInput' type='text' id='firstName' placeholder="">
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>Last Name: </label>
+              <input class='createInput' type='text' id='lastName' placeholder="">
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>Password: </label>
+              <input class='createInput' type='Password' >
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>Password: </label>
+              <input class='createInput' type='Password' >
+          </div>
 
+          <div>
+            <button class='createButtonClass'  type='button' onclick='home()'>Back</button>
+            <button class='createButtonClass'  type='button' onclick='create()'>Create</button>
+          </div>
       </div>
     </div>
 
