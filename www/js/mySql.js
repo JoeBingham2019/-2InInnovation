@@ -22,6 +22,29 @@ var MySql = {
             }
 
     },
+    _internalCreateCallback : function(queryReturned) {
+
+            console.log(queryReturned);
+            // if (!queryReturned.Success) {
+            //     console.log(queryReturned.Error);
+            //     alert(queryReturned.Error)
+            // } else {
+            //     if(queryReturned.Result.length === 0){
+            //         document.getElementById('error').style.display = "block";
+            //         return;
+            //     } else {
+            //         document.getElementById('error').style.display = "none";
+            //         let userId = queryReturned.Result[0].id;
+            //         sessionStorage.setItem("id", userId);
+            //         document.getElementById("usernameOutput").innerHTML = `Welcome, ${sessionStorage.getItem("username")}. Your ID is: ${sessionStorage.getItem("id")}.`;
+            //         document.getElementById('tabList').style.marginLeft = "0";
+            //         document.getElementById('login').style.display = "none";
+            //         document.getElementById('tabList').style.height = "auto";
+            //         document.getElementById('secondPage').click();
+            //     }
+            // }
+
+    },
     Execute: function (Sql, Callback) {
         MySql._internalCallback = Callback;
         // to-do: change localhost: to mysqljs.com

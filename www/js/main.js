@@ -9,6 +9,8 @@
 /* put global variables here */
 /*===========================*/
 
+let confirmPassWordValue = false;
+
 
 /* wait until all phonegap/cordova is loaded then call onDeviceReady*/
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -62,6 +64,50 @@ let login = () => {
     let username = document.getElementById('asurite').value;
     sessionStorage.setItem("username", username);
     MySql.Execute(`SELECT id from login where username = "${username}"`, MySql._internalLoginCallback);
+
+}
+
+let createAccount = () => {
+    let username = document.getElementById('username').value;
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let password = document.getElementById('firstPassword').value;
+
+    if(!confirmPassWordValue){
+        document.getElementById('createError').innerHTML = "Error: Please make sure passwords match.";
+        document.getElementById('createError').style.display = "block";
+        return;
+
+    } else if(username.length == 0 || firstName.length == 0 || lastName.length == 0) {
+        document.getElementById('createError').innerHTML = "Error: Please make sure no textboxes are empty";
+        document.getElementById('createError').style.display = "block";
+        return;
+    }
+
+    let query = `insert into login (username, firstName, lastName, password) values ('${username}',
+        '${firstName}', '${lastName}', '${password}';`;
+
+    MySql.Execute(query, MySql._internalCreateCallback);
+
+
+}
+
+let confirmPassword = (thisObject) => {
+    let firstPassword = document.getElementById('firstPassword').value;
+    let secondPassword = thisObject.value;
+
+
+    if(firstPassword.indexOf(secondPassword) > -1 ){
+        document.getElementById('passwordVerify').style.borderBottom = 'thick solid green';
+        if(firstPassword.length  === secondPassword.length){
+        confirmPassWordValue = true;
+        console.log(confirmPassWordValue);
+        }
+
+    } else {
+        document.getElementById('passwordVerify').style.borderBottom = 'thick solid red';
+
+    }
 
 }
 
