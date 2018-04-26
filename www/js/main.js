@@ -16,6 +16,14 @@ let confirmPassWordValue = false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 
+let hideElement = () => {
+    document.getElementById('tabList').style.marginLeft = "0";
+    document.getElementById('login').style.display = "none";
+    document.getElementById('create').style.display = "none";
+    document.getElementById('tabList').style.height = "auto";
+}
+
+
 
 
 function showHomeTab() {
@@ -63,6 +71,7 @@ function showTab(event, tabName) {
 
 /*hide nav on device ready and show the login screen*/
 function onDeviceReady(){
+    document.getElementById("createGroup").addEventListener("click", hideElement);
     document.getElementById('tabList').style.marginLeft = "-99999px";
     document.getElementById('tabList').style.height = "0vh";
     showHomeTab();
