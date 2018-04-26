@@ -50,7 +50,7 @@ ul.tab li a:focus, .active {
 /* Style the tab content */
 .tabContent {
     display:        none;
-    padding:        10vw 10vw;
+    /*padding:        10vw 10vw;*/
     height:         90vh;
     font-size:        2.5vh;
 }

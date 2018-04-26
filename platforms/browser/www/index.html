@@ -9,52 +9,107 @@
       initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- This is not a secure content policy, should be locked down for prod -->
-    <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self' data: gap: 'unsafe-inline'
-            https://ssl.gstatic.com https://*.phonegap.com;
-          style-src 'self' 'unsafe-inline';
-          script-src  'self' 'unsafe-inline' 'unsafe-eval'
-            https://*.phonegap.com ;
-          media-src *" />
+ <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: 'unsafe-inline'
+          https://ssl.gstatic.com https://*.phonegap.com;
+        style-src 'self' 'unsafe-inline';
+        script-src  'self' 'unsafe-inline' 'unsafe-eval'
+          http://mysqljs.com
+          https://*.phonegap.com ;
+        media-src *" />
 
           <link rel="stylesheet" type="text/css" href="css/main.css" />
+          <link rel="stylesheet" type="text/css" href="css/login.css" />
+          <link rel="stylesheet" type="text/css" href="css/create.css" />
+          <script src="http://mysqljs.com/mysql.js"></script>
+          <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
-  <body>
-    <ul class="tab">
-      <li><a href="#" class="tabLink" id="home" onclick="showTab(event, 'Red'  )">Red  </a></li>
+  <body onload="onDeviceReady()">
+
+
+
+  <!----------------------------------Tab 0: Nav Bar---------------------------------------->
+    <ul class="tab" id='tabList'>
+      <li><a href="#" class="tabLink" id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
+      <li><a href="#" class="tabLink" id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'Green')">Green</a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'Blue' )">Blue </a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'About')">About</a></li>
+      <li><a href="#" class="tabLink"           onclick="logout(event, 'logout')">Log Out</a></li>
     </ul>
 
+  <!----------------------------------Tab 1: Log In Page---------------------------------->
 
-    <div id="Red"   class="tabContent active" style="background-color: rgba(255, 0, 0, 0.650)">
-      <h3>Red</h3>
-      <p>
-        Red is the color at the longer-wavelengths end of the spectrum of
-        visible light next to orange, at the opposite end from violet. Red
-        color has a predominant light wavelength of roughly 620–740
-        nanometers. Light with a longer wavelength than red but shorter
-        than terahertz radiation and microwave is called infrared.
+    <div id="LogIn"   class="tabContent active" style="background-color: #f1f1f1">
+      <div id='loginBody'>
+        <h3 id='loginHeading'>Study Buddy</h3>
+          <div class='loginLabelBlock'>
+              <label class='loginLabel'>Username: </label>
+              <input class='loginInput' type='text' id='asurite' placeholder="ASURite">
+          </div>
+          <div class='loginLabelBlock'>
+              <label class='loginLabel'>Password: </label>
+              <input class='loginInput' type='Password' id='loginPassword' >
+          </div>
+          <p id='error'>Woops! Invalid username or password</p>
+          <button id='loginButton' type='button' onclick='login()'>Log In</button>
+          <button id='createButton' type='button' onclick='create()'>Create</button>
 
-        <button type='button' onClick='login'>submit</button>
-      </p>
+      </div>
     </div>
+
+      <!-------------------------------Tab 2: Create Account Page---------------------------------->
+
+    <div id="createAccount"   class="tabContent" style="background-color: #f1f1f1">
+      <div id='createBody'>
+        <br />
+        <br />
+        <div class='createLabelBlock'>
+              <label class='createLabel'>Username: </label>
+              <input class='createInput' type='text' id='username' placeholder="ASURite">
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>First Name: </label>
+              <input class='createInput' type='text' id='firstName' placeholder="">
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>Last Name: </label>
+              <input class='createInput' type='text' id='lastName' placeholder="">
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>Password: </label>
+              <input class='createInput' id='firstPassword' type='password' >
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>Password: </label>
+              <input class='createInput' id='passwordVerify' type='password' onkeyup='confirmPassword(this)'>
+          </div>
+
+          <p id='createError'></p>
+
+          <div>
+            <button class='createButtonClass'  type='button' onclick='home()'>Back</button>
+            <button class='createButtonClass'  type='button' onclick='createAccount()'>Create</button>
+          </div>
+      </div>
+    </div>
+
+
+
+  <!----------------------------------Tab 3: Home Page---------------------------------->
 
     <div id="Green"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
-      <h3>Green</h3>
-      <p>
-        Red is the color at the longer-wavelengths end of the spectrum of
-        visible light next to orange, at the opposite end from violet. Red
-        color has a predominant light wavelength of roughly 620–740
-        nanometers. Light with a longer wavelength than red but shorter
-        than terahertz radiation and microwave is called infrared.
-
-        <button type='button' onClick='login'>submit</button>
-      </p>
+      <h3>Success!</h3>
+      <p id='usernameOutput'></p>
     </div>
 
-    <script type="text/javascript" src="cordova.js"></script>
+    <!----------------------------------Tab 3: Home Page---------------------------------->
+
+    <div id="logout"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
+      <h3>Success!</h3>
+      <p id='usernameOutput'></p>
+    </div>
+
     <script type="text/javascript" src="./js/main.js"></script>
 
   </body>

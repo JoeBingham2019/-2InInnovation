@@ -19,7 +19,16 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function showHomeTab() {
-  document.getElementById('login').click();
+    let usernameTest = localStorage.getItem('username');
+
+  if(typeof usernameTest !== 'undefined' && usernameTest !== null) {
+        entry();
+
+    } else {
+
+        document.getElementById('login').click();
+    }
+
 }
 
 /******************************************************************************/
@@ -62,8 +71,10 @@ function onDeviceReady(){
 /*take the info, create a session variable, pass to next page, enable the next page navbar*/
 let login = () => {
     let username = document.getElementById('asurite').value;
-    sessionStorage.setItem("username", username);
-    MySql.Execute(`SELECT id from login where username = "${username}"`, MySql._internalLoginCallback);
+    let password = document.getElementById('loginPassword').value;
+
+    localStorage.setItem("username", username);
+    MySql.Execute(`SELECT id from login where username = "${username}" and password = "${password}"`, MySql._internalLoginCallback);
 
 }
 
@@ -84,8 +95,7 @@ let createAccount = () => {
         return;
     }
 
-    let query = `insert into login (username, firstName, lastName, password) values ('${username}',
-        '${firstName}', '${lastName}', '${password}';`;
+    let query = "insert into login (username, firstName, lastName, password) values ('" + username + "','" + firstName + "','" + lastName + "','" + password +"')";
 
     MySql.Execute(query, MySql._internalCreateCallback);
 
@@ -117,4 +127,27 @@ let create = () => {
 
 let home = () => {
     document.getElementById('login').click();
+}
+
+let entry = () => {
+      document.getElementById("usernameOutput").innerHTML = `Welcome, ${localStorage.getItem("username")}. Your ID is: ${localStorage.getItem("id")}.`;
+                    document.getElementById('tabList').style.marginLeft = "0";
+                    document.getElementById('login').style.display = "none";
+                    document.getElementById('create').style.display = "none";
+                    document.getElementById('tabList').style.height = "auto";
+                    document.getElementById('secondPage').click();
+}
+
+let logout = () => {
+
+    document.getElementById('error').style.display = "none";
+    if(localStorage.length > 1){
+        localStorage.removeItem('id');
+        localStorage.removeItem('username');
+        document.getElementById('asurite').value = "";
+        document.getElementById('loginPassword').value = "";
+
+    }
+
+    onDeviceReady();
 }

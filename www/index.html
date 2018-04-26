@@ -35,6 +35,7 @@
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'Green')">Green</a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'Blue' )">Blue </a></li>
       <li><a href="#" class="tabLink"           onclick="showTab(event, 'About')">About</a></li>
+      <li><a href="#" class="tabLink"           onclick="logout(event, 'logout')">Log Out</a></li>
     </ul>
 
   <!----------------------------------Tab 1: Log In Page---------------------------------->
@@ -48,7 +49,7 @@
           </div>
           <div class='loginLabelBlock'>
               <label class='loginLabel'>Password: </label>
-              <input class='loginInput' type='Password' >
+              <input class='loginInput' type='Password' id='loginPassword' >
           </div>
           <p id='error'>Woops! Invalid username or password</p>
           <button id='loginButton' type='button' onclick='login()'>Log In</button>
@@ -102,14 +103,14 @@
       <p id='usernameOutput'></p>
     </div>
 
-    <script type="text/javascript" src="./js/main.js"></script>
-    <script>
-      let test = () => {
-        document.getElementById('secondPage').click();
-        console.log('test');
-    }
+    <!----------------------------------Tab 3: Home Page---------------------------------->
 
-    </script>
+    <div id="logout"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
+      <h3>Success!</h3>
+      <p id='usernameOutput'></p>
+    </div>
+
+    <script type="text/javascript" src="./js/main.js"></script>
 
   </body>
 </html>
