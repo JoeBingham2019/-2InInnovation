@@ -21,6 +21,7 @@
           <link rel="stylesheet" type="text/css" href="css/main.css" />
           <link rel="stylesheet" type="text/css" href="css/login.css" />
           <link rel="stylesheet" type="text/css" href="css/create.css" />
+          <link rel="stylesheet" type="text/css" href="css/search.css" />
           <script src="http://mysqljs.com/mysql.js"></script>
           <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
@@ -32,9 +33,9 @@
     <ul class="tab" id='tabList'>
       <li><a href="#" class="tabLink" id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
       <li><a href="#" class="tabLink" id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
-      <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'Green')">Green</a></li>
-      <li><a href="#" class="tabLink"           onclick="showTab(event, 'Blue' )">Blue </a></li>
-      <li><a href="#" class="tabLink"           onclick="showTab(event, 'About')">About</a></li>
+      <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'search')">Search</a></li>
+      <li><a href="#" class="tabLink"           onclick="showTab(event, 'create' )">Create </a></li>
+      <li><a href="#" class="tabLink"           onclick="showTab(event, 'profile')">Profile</a></li>
       <li><a href="#" class="tabLink"           onclick="logout(event, 'logout')">Log Out</a></li>
     </ul>
 
@@ -98,9 +99,13 @@
 
   <!----------------------------------Tab 3: Home Page---------------------------------->
 
-    <div id="Green"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
-      <h3>Success!</h3>
-      <p id='usernameOutput'></p>
+    <div id="search"   class="tabContent">
+      <div id='searchContainer'>
+        <div id='searchInput'>
+          <input type='text' placeholder="ex. CIS 105" /><button type='button'>Search</button>
+        </div>
+      </div>
+
     </div>
 
     <!----------------------------------Tab 3: Home Page---------------------------------->

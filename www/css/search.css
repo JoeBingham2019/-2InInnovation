@@ -1,0 +1,24 @@
+#searchContainer {
+  background-image: url("../img/search.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  width: 100vw;
+}
+
+#searchInput {
+  padding: 38vh 5vw;
+}
+
+#searchInput input {
+  font-size: 5.5vw;
+  width: 67vw;
+  opacity: .5;
+}
+
+#searchInput button {
+  font-size: 6vw;
+  background-color: white;
+  border-style: none;
+  opacity: .7;
+}
