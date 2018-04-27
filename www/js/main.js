@@ -16,7 +16,7 @@ let confirmPassWordValue = false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 
-let hideElement = () => {
+const hideElement = () => {
     document.getElementById('tabList').style.marginLeft = "0";
     document.getElementById('login').style.display = "none";
     document.getElementById('create').style.display = "none";
@@ -78,7 +78,7 @@ function onDeviceReady(){
 }
 
 /*take the info, create a session variable, pass to next page, enable the next page navbar*/
-let login = () => {
+const login = () => {
     let username = document.getElementById('asurite').value;
     let password = document.getElementById('loginPassword').value;
 
@@ -87,7 +87,7 @@ let login = () => {
 
 }
 
-let createAccount = () => {
+const createAccount = () => {
     let username = document.getElementById('username').value;
     let firstName = document.getElementById('firstName').value;
     let lastName = document.getElementById('lastName').value;
@@ -112,7 +112,7 @@ let createAccount = () => {
 
 }
 
-let confirmPassword = (thisObject) => {
+const confirmPassword = (thisObject) => {
     let firstPassword = document.getElementById('firstPassword').value;
     let secondPassword = thisObject.value;
 
@@ -131,15 +131,15 @@ let confirmPassword = (thisObject) => {
 
 }
 
-let create = () => {
+const create = () => {
     document.getElementById('create').click();
 }
 
-let home = () => {
+const home = () => {
     document.getElementById('login').click();
 }
 
-let entry = () => {
+const entry = () => {
       document.getElementById("usernameOutput").innerHTML = `Welcome, ${localStorage.getItem("username")}. Your ID is: ${localStorage.getItem("id")}.`;
                     document.getElementById('tabList').style.marginLeft = "0";
                     document.getElementById('login').style.display = "none";
@@ -148,7 +148,7 @@ let entry = () => {
                     document.getElementById('secondPage').click();
 }
 
-let logout = () => {
+const logout = () => {
 
     document.getElementById('error').style.display = "none";
 
@@ -160,4 +160,48 @@ let logout = () => {
 
 
     onDeviceReady();
+}
+
+const search = () => {
+    const searchTerm = document.getElementById('searchTerm').value;
+
+    const classSearch = document.getElementById('searchClass');
+    const peopleSearch = document.getElementById('searchPeople');
+    const locationSearch = document.getElementById('searchLocation');
+     let query = ""
+
+    if(searchTerm.length === 0){
+        query = "error";
+    } else if(classSearch.checked){
+        query = `Select * from studyGroup where courseName like "%${searchTerm}%"`;
+    } else if (peopleSearch.checked){
+
+        const concatNames = searchTerm.replace(/\s+/g, '');
+
+        query = `Select * from user where concat(firstName, lastName) like "%${concatNames}%"`;
+    } else if (locationSearch.checked){
+        query = `Select * from studyGroup where location like "%${searchTerm}%"`;
+    } else {
+        query = "error"
+    }
+
+    if(query != "error"){
+        MySql.Execute(query, MySql._internalSearchCallback);
+    } else {
+        console.log('it ran');
+        let error = document.getElementById('searchError');
+        error.innerHTML = "Woops - error! Please make sure a button is pushed or the textbox is not empty.";
+        error.style.display = "block";
+    }
+
+
+}
+
+const toggleButton = (clickedObject) => {
+    let activeButton = document.getElementsByClassName('selectedButton');
+    activeButton[0].childNodes[3].removeAttribute("checked");
+    activeButton[0].classList.remove("selectedButton");
+    clickedObject.classList.add("selectedButton");
+    clickedObject.childNodes[3].setAttribute("checked", "checked");
+
 }

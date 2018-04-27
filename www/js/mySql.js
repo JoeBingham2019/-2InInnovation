@@ -11,7 +11,7 @@ var MySql = {
                     return;
                 } else {
                     document.getElementById('error').style.display = "none";
-                    let userId = queryReturned.Result[0].userID;
+                    let userId = queryReturned.Result[0].studentID;
                     localStorage.setItem("id", userId);
 
                     entry();
@@ -29,6 +29,18 @@ var MySql = {
                 home();
 
             }
+
+    },
+    _internalSearchCallback : function(queryReturned) {
+
+
+        if (!queryReturned.Success) {
+            alert(queryReturned.Error);
+        } else {
+            document.getElementById('searchError').style.display = "none";
+          localStorage.setItem("searchResult", JSON.stringify(queryReturned.Result));
+
+        }
 
     },
     Execute: function (Sql, Callback) {

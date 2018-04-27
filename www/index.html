@@ -108,8 +108,23 @@
     <div id="search"   class="tabContent">
       <div id='searchContainer'>
         <div id='searchInput'>
-          <input type='text' placeholder="ex. CIS 105" /><button type='button' >Search</button>
+          <input type='text' id='searchTerm' placeholder="ex. CIS 105" /><button type='button' onclick='search()'>Search</button>
+          <div id='multiButtonSearch'>
+            <div class='button selectedButton' onclick='toggleButton(this)'>
+              <label class='searchLabel '>Class</label>
+              <input class='radioSearch' type='radio' name='search' id='searchClass' checked="checked">
+            </div>
+            <div class='button' onclick='toggleButton(this)'>
+              <label class='searchLabel'>People</label>
+              <input class='radioSearch' type='radio' name='search' id='searchPeople'>
+            </div>
+           <div class='button' onclick='toggleButton(this)'>
+              <label class='searchLabel'>Location</label>
+              <input class='radioSearch' type='radio' name='search' id='searchLocation'>
+            </div>
+          </div>
         </div>
+        <p id='searchError'></p>
       </div>
 
     </div>
