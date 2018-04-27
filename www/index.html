@@ -31,8 +31,9 @@
 
   <!----------------------------------Tab 0: Nav Bar---------------------------------------->
     <ul class="tab" id='tabList'>
-      <li><a href="#" class="tabLink" id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
-      <li><a href="#" class="tabLink" id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
+      <li><a href="#" class="tabLink " id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
+      <li><a href="#" class="tabLink " id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
+      <li><a href="#" class="tabLink hiddenLink" id='mapPage'         onclick="showTab(event, 'search')">Map</a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'search')">Search</a></li>
       <li><a href="#" class="tabLink" id='createGroup'          onclick="showTab(event, 'create' )">Create </a></li>
       <li><a href="#" class="tabLink" id='profile'          onclick="showTab(event, 'profile')">Profile</a></li>
@@ -65,17 +66,22 @@
       <div id='createBody'>
         <br />
         <br />
-        <div class='createLabelBlock'>
-              <label class='createLabel'>Username: </label>
+
+          <div class='createLabelBlock'>
+              <label class='createLabel'>Student ID: </label>
+              <input class='createInput' type='text' id='id' placeholder="1234567890">
+          </div>
+          <div class='createLabelBlock'>
+              <label class='createLabel'>ASURite: </label>
               <input class='createInput' type='text' id='username' placeholder="ASURite">
           </div>
           <div class='createLabelBlock'>
               <label class='createLabel'>First Name: </label>
-              <input class='createInput' type='text' id='firstName' placeholder="">
+              <input class='createInput' type='text' id='firstName' placeholder="John">
           </div>
           <div class='createLabelBlock'>
               <label class='createLabel'>Last Name: </label>
-              <input class='createInput' type='text' id='lastName' placeholder="">
+              <input class='createInput' type='text' id='lastName' placeholder="Smith">
           </div>
           <div class='createLabelBlock'>
               <label class='createLabel'>Password: </label>
@@ -102,7 +108,7 @@
     <div id="search"   class="tabContent">
       <div id='searchContainer'>
         <div id='searchInput'>
-          <input type='text' placeholder="ex. CIS 105" /><button type='button'>Search</button>
+          <input type='text' placeholder="ex. CIS 105" /><button type='button' >Search</button>
         </div>
       </div>
 
@@ -111,6 +117,13 @@
     <!----------------------------------Tab 3: Home Page---------------------------------->
 
     <div id="logout"   class="tabContent" style="background-color: rgba(0, 255, 0, 0.650)">
+      <h3>Success!</h3>
+      <p id='usernameOutput'></p>
+    </div>
+
+     <!----------------------------------Tab 3: Home Page---------------------------------->
+
+    <div id="map"   class="tabContent">
       <h3>Success!</h3>
       <p id='usernameOutput'></p>
     </div>

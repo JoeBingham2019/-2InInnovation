@@ -83,7 +83,7 @@ let login = () => {
     let password = document.getElementById('loginPassword').value;
 
     localStorage.setItem("username", username);
-    MySql.Execute(`SELECT id from login where username = "${username}" and password = "${password}"`, MySql._internalLoginCallback);
+    MySql.Execute(`SELECT studentID from user where userName = "${username}" and userPassword = "${password}"`, MySql._internalLoginCallback);
 
 }
 
@@ -92,6 +92,7 @@ let createAccount = () => {
     let firstName = document.getElementById('firstName').value;
     let lastName = document.getElementById('lastName').value;
     let password = document.getElementById('firstPassword').value;
+    let id = document.getElementById('id').value;
 
     if(!confirmPassWordValue){
         document.getElementById('createError').innerHTML = "Error: Please make sure passwords match.";
@@ -104,7 +105,7 @@ let createAccount = () => {
         return;
     }
 
-    let query = "insert into login (username, firstName, lastName, password) values ('" + username + "','" + firstName + "','" + lastName + "','" + password +"')";
+    let query = "insert into user (studentID, userName, firstName, lastName, userPassword) values ('" + id + "','" + username + "','" + firstName + "','" + lastName + "','" + password +"')";
 
     MySql.Execute(query, MySql._internalCreateCallback);
 
@@ -150,13 +151,13 @@ let entry = () => {
 let logout = () => {
 
     document.getElementById('error').style.display = "none";
-    if(localStorage.length > 1){
+
         localStorage.removeItem('id');
         localStorage.removeItem('username');
         document.getElementById('asurite').value = "";
         document.getElementById('loginPassword').value = "";
 
-    }
+
 
     onDeviceReady();
 }

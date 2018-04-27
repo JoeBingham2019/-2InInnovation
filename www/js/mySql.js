@@ -11,7 +11,7 @@ var MySql = {
                     return;
                 } else {
                     document.getElementById('error').style.display = "none";
-                    let userId = queryReturned.Result[0].id;
+                    let userId = queryReturned.Result[0].userID;
                     localStorage.setItem("id", userId);
 
                     entry();
@@ -36,9 +36,9 @@ var MySql = {
         // to-do: change localhost: to mysqljs.com
         var strSrc = "http://mysqljs.com/sql.aspx?";
         strSrc += "Host=wpcdmazzola01.cloud.wpcarey.asu.edu";
-        strSrc += "&Username=jabingh1";
-        strSrc += "&Password=bing1335";
-        strSrc += "&Database=db_test_jabingh1";
+        strSrc += "&Username=rur3ady";
+        strSrc += "&Password=wood2261";
+        strSrc += "&Database=db_test_rur3ady";
         strSrc += "&sql=" + Sql;
         strSrc += "&Callback=MySql._internalCallback";
         var sqlScript = document.createElement('script');
