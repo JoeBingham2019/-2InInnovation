@@ -124,6 +124,16 @@ const createAccount = () => {
 
 }
 
+const creatGroup = () => {
+    let classID = document.getElementById('ClassName')
+    let numofPeople = document.getElementById('numofPeople')
+    let locDescription = document.getElementById('locDesc')
+    let startTime = document.getElementById('startTime')
+    let endTime = document.getElementById('endTime')
+    let date = document.getElementById('Date')
+    
+}
+
 const confirmPassword = (thisObject) => {
     let firstPassword = document.getElementById('firstPassword').value;
     let secondPassword = thisObject.value;

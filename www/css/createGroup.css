@@ -27,3 +27,13 @@ background-color: black;
  text-align: center;
  display: inline-block;
 }
+
+#groupCreateButton {
+  margin-top: 2vh;
+  margin-left: 32vw;
+  width: 32vw;
+  height: 10vw;
+  background-color: white;
+  border-style: none;
+  font-size: 5vw;
+}
