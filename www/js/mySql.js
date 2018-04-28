@@ -44,6 +44,7 @@ var MySql = {
             console.log(queryReturned.Result);
                 body        = document.getElementById('searchInput');
                 table       = document.createElement("table");
+                table.id = 'resultsTable';
                 tableBody   = document.createElement("tbody");
                 tableHeader = document.createElement("tr");
 
@@ -106,6 +107,19 @@ var MySql = {
         }
 
     },
+    _internalJoinCallback : function(queryReturned) {
+
+
+           if (!queryReturned.Success) {
+               alert(queryReturned.Error);
+           } else {
+
+
+
+
+           }
+
+   },
     Execute: function (Sql, Callback) {
         MySql._internalCallback = Callback;
         // to-do: change localhost: to mysqljs.com
