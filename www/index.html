@@ -11,7 +11,7 @@
     <!-- This is not a secure content policy, should be locked down for prod -->
  <meta http-equiv="Content-Security-Policy"
     content="default-src 'self' data: gap: 'unsafe-inline'
-              https://*.gstatic.com 
+              https://*.gstatic.com
               https://*.phonegap.com
               https://*.googleapis.com;
             style-src 'self' 'unsafe-inline'
@@ -30,6 +30,7 @@
           <link rel="stylesheet" type="text/css" href="css/login.css" />
           <link rel="stylesheet" type="text/css" href="css/create.css" />
           <link rel="stylesheet" type="text/css" href="css/search.css" />
+          <link rel="stylesheet" type="text/css" href="css/createGroup.css" />
           <script src="http://mysqljs.com/mysql.js"></script>
           <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
@@ -43,7 +44,7 @@
       <li><a href="#" class="tabLink " id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
       <li><a href="#" class="tabLink hiddenLink" id='mapPage'         onclick="showTab(event, 'search')">Map</a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'search')">Search</a></li>
-      <li><a href="#" class="tabLink" id='createGroup'          onclick="showTab(event, 'create' )">Create </a></li>
+      <li><a href="#" class="tabLink" id='createGroup'          onclick="showTab(event, 'createGroupContent' )">Create </a></li>
       <li><a href="#" class="tabLink" id='profile'          onclick="showTab(event, 'profile')">Profile</a></li>
       <li><a href="#" class="tabLink"           onclick="logout(event, 'logout')">Log Out</a></li>
     </ul>
@@ -136,36 +137,65 @@
       </div>
 
       <div id='searchResult'>
-        
+
       </div>
 
     </div>
 
   <!-------------------------------Tab 3: Profile Page---------------------------------->
 
-      <!--<div id="profileAccount"   class="tabContent" style="background-color: #8C1D40">
-      <div id='profileBody'>
+   <div id="createGroupContent" class="tabContent">
+     <div id="createBody">
+       <h3>Create a Group</h3>
+         <div class="groupCreate">
+         <label class="groupLabel">Class</label>
+         <input class="groupInput" type='text' id='ClassName'>
+         </div>
+         <div class="groupCreate">
+         <label class="groupLabel"># of People</label>
+         <select class="groupInput" type='text' id='numOfPeople'>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
+           <option value="8">8</option>
+           <option value="9">9</option>
+           <option value="10">10</option>
+         </select>
+         </div>
 
-          <div class='profileLabelBlock'>
-              <label class='profileLabel'>Username: </label>
-              <input class='profileInput' type='text' id='username' placeholder="ASURite">
-          </div>
-          <div class='profileLabelBlock'>
-              <label class='profileLabel'>First Name: </label>
-              <input class='profileInput' type='text' id='firstName' placeholder="">
-          </div>
-          <div class='profileLabelBlock'>
-              <label class='profileLabel'>Last Name: </label>
-              <input class='profileInput' type='text' id='lastName' placeholder="">
-          </div>
-          <div class='profileLabelBlock'>
-              <label class='profileLabel'>Edit Password: </label>
-              <input class='profileInput' id='firstPassword' type='password' >
-          </div>
-          <div class='profileLabelBlock'>
-              <label class='profileLabel'>Confirm Password: </label>
-              <input class='profileInput' id='passwordVerify' type='password' onkeyup='confirmPassword(this)'>
-          </div> -->
+         <div id="mapDiv">
+
+         </div>
+
+         <div class="groupCreate">
+         <label class="groupLabel">Location Description</label>
+         <input class="groupInput" type='text' id='locDesc' placeholder="Let them know where you are">
+         </div>
+
+         <div class="groupCreate">
+         <label class="groupLabel">Start Time</label>
+         <input class="groupInput" type='time' id='startTime' value="12:00pm">
+         </div>
+
+         <div class="groupCreate">
+         <label class="groupLabel">End Time</label>
+         <input class="groupInput" type='time' id='endTime' value="12:00pm">
+         </div>
+
+         <div class="groupCreate">
+         <label class="groupLabel">Date</label>
+         <input class="groupInput" type='date' id='Date' value="04-30-18">
+         </div>
+
+         <div class="groupCreate">
+           <button Type="button">Create Group</button>
+         </div>
+
+     </div>
+   </div>
 
 
 
@@ -188,12 +218,12 @@
     <div id="groupDetail"   class="tabContent">
       <h3>Success!</h3>
       <div id="detail">
-        
+
       </div>
       <div id="map">
-        
+
       </div>
-      
+
     </div>
 
     <script type="text/javascript" src="./js/main.js"></script>
