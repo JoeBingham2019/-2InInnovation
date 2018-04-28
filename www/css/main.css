@@ -64,4 +64,8 @@ h3 {
   display: none !important;
 }
 
+#map {
+  width: 25vh;
+  height: 25vh;
+}
 
