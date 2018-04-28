@@ -27,3 +27,9 @@ background-color: black;
  text-align: center;
  display: inline-block;
 }
+
+#resultsTable {
+  width: 90vw;
+  background-color: rgba(107, 189, 0, .5);
+  color: red;
+}

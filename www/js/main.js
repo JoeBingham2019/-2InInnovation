@@ -74,6 +74,7 @@ function showDetail(event, tabName, groupID) {
     if(query != "error"){
         MySql.Execute(query, MySql._internalShowDetailCallback);
     }
+    localStorage.setItem('selectedGroupId', groupID);
     showTab(event, tabName);
 }
 
@@ -182,12 +183,12 @@ const search = () => {
     const locationSearch = document.getElementById('searchLocation');
      let query = ""
 
-    
+
 
     if(searchTerm.length === 0){
         query = "error";
     } else if(classSearch.checked){
-        
+
         query = `Select * from studyGroup where courseName like "%${searchTerm}%"`;
         //console.log(query);
     } else if (peopleSearch.checked){
@@ -238,3 +239,14 @@ function initMap(latNumber, lonNumber) {
             //console.log("map");
 }
 
+
+function join() {
+   let query = "";
+   let userId = localStorage.id;
+   let groupId = localStorage.selectedGroupId;
+
+   query = `INSERT INTO db_test_rur3ady.groupMembers (groupId, studentId) VALUES ('${groupId}', '${userId}');`;
+   console.log(query);
+   MySql.Execute(query, MySql._internalJoinCallback);
+   console.log("success!");
+}
