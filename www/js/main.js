@@ -60,9 +60,21 @@ function showTab(event, tabName) {
           tabLinkElems[i].className.replace(" active", "");
     }
 
+
+
     // Show the current tab, and add an "active" class to the link
     document.getElementById(tabName).style.display = "block";
     event.currentTarget.className += " active";
+}
+
+
+function showDetail(event, tabName, groupID) {
+    let query;
+    query = `Select * from studyGroup where groupID = "${groupID}"`;
+    if(query != "error"){
+        MySql.Execute(query, MySql._internalShowDetailCallback);
+    }
+    showTab(event, tabName);
 }
 
 /******************************************************************************/
@@ -170,22 +182,28 @@ const search = () => {
     const locationSearch = document.getElementById('searchLocation');
      let query = ""
 
+    
+
     if(searchTerm.length === 0){
         query = "error";
     } else if(classSearch.checked){
+        
         query = `Select * from studyGroup where courseName like "%${searchTerm}%"`;
+        //console.log(query);
     } else if (peopleSearch.checked){
-
+        //console.log('people');
         const concatNames = searchTerm.replace(/\s+/g, '');
 
         query = `Select * from user where concat(firstName, lastName) like "%${concatNames}%"`;
     } else if (locationSearch.checked){
+        //console.log('location');
         query = `Select * from studyGroup where location like "%${searchTerm}%"`;
     } else {
         query = "error"
     }
 
     if(query != "error"){
+        document.getElementById('searchResult').innerHTML = "";
         MySql.Execute(query, MySql._internalSearchCallback);
     } else {
         console.log('it ran');
@@ -205,3 +223,18 @@ const toggleButton = (clickedObject) => {
     clickedObject.childNodes[3].setAttribute("checked", "checked");
 
 }
+
+function initMap(latNumber, lonNumber) {
+            var mapElement      = document.getElementById('map');
+            latNumber = Number(latNumber);
+            lonNumber = Number(lonNumber);
+            var geoLocationASU  = {lat: latNumber, lng: lonNumber};
+            var mapOptions      = {zoom: 18, center: geoLocationASU};
+
+            var mapper = new google.maps.Map(mapElement, mapOptions);
+
+            var markerOptions   = {position: geoLocationASU, map: mapper};
+            var marker = new google.maps.Marker(markerOptions);
+            //console.log("map");
+}
+
