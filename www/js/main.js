@@ -290,10 +290,22 @@ function  createMap() {
 
 }
 
-function createGroup() {
-    
-}
 
+
+const creatGroup = () => {
+   let classID = document.getElementById('ClassName').value;
+   let numOfPeople = document.getElementById('numOfPeople').value;
+   let locDescription = document.getElementById('locDesc').value;
+   let startTime = document.getElementById('startTime').value;
+   let endTime = document.getElementById('endTime').value;
+   let date = document.getElementById('Date').value;
+   console.log(date);
+   
+   let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + localStorage.currentlat + "','" + localStorage.currentlon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numOfPeople + "')";
+   console.log(groupInsert);
+   
+   MySql.Execute(groupInsert,MySql._internalJoinCallback);
+}
 
 
 function join() {
