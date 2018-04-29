@@ -339,5 +339,5 @@ function join() {
    MySql.Execute(query, MySql._internalJoinCallback);
    console.log("success!");
 
-  
+}
 
