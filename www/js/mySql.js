@@ -39,9 +39,12 @@ var MySql = {
         } else {
             document.getElementById('searchError').style.display = "none";
             localStorage.setItem("searchResult", JSON.stringify(queryReturned.Result));
+
+            document.getElementById('searchInput').style.padding = "20vh 5vw";
             console.log(queryReturned.Result);
-                body        = document.getElementById('searchResult');
+                body        = document.getElementById('searchInput');
                 table       = document.createElement("table");
+                table.id = 'resultsTable';
                 tableBody   = document.createElement("tbody");
                 tableHeader = document.createElement("tr");
 
@@ -54,7 +57,7 @@ var MySql = {
                 tableBody.appendChild(tableHeader);
 
                 for (var i=0; i<queryReturned.Result.length; i++) {
-                    var tableRow = document.createElement("tr");                   
+                    var tableRow = document.createElement("tr");
 
                     var cell     = document.createElement("td");
                     var cellContent = document.createElement('a');
@@ -70,7 +73,7 @@ var MySql = {
                     tableRow.appendChild(cell);
 
                     var cell     = document.createElement("td");
-                    
+
                     var cellText = document.createTextNode(Object.values(queryReturned.Result[i])[4]);
 
                     cell.appendChild(cellText);
@@ -92,8 +95,8 @@ var MySql = {
         if (!queryReturned.Success) {
             alert(queryReturned.Error);
         } else {
-            
-            document.getElementById("detail").innerHTML = 
+
+            document.getElementById("detail").innerHTML =
                     JSON.stringify(queryReturned.Result, null, 2);
             //console.log(queryReturned.Result);
             var lat, lon;
@@ -104,6 +107,19 @@ var MySql = {
         }
 
     },
+    _internalJoinCallback : function(queryReturned) {
+
+
+           if (!queryReturned.Success) {
+               alert(queryReturned.Error);
+           } else {
+
+
+
+
+           }
+
+   },
     Execute: function (Sql, Callback) {
         MySql._internalCallback = Callback;
         // to-do: change localhost: to mysqljs.com
