@@ -192,7 +192,6 @@ const search = () => {
         document.getElementById('searchResult').innerHTML = "";
         MySql.Execute(query, MySql._internalSearchCallback);
     } else {
-        console.log('it ran');
         let error = document.getElementById('searchError');
         error.innerHTML = "Woops - error! Please make sure a button is pushed or the textbox is not empty.";
         error.style.display = "block";

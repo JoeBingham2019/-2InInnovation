@@ -44,7 +44,7 @@ var MySql = {
         } else {
             if(queryReturned.Result.length > 0)
             {
-
+            console.log(queryReturned.Result);
             document.getElementById('searchError').style.display = "none";
             localStorage.setItem("searchResult", JSON.stringify(queryReturned.Result));
 
@@ -97,6 +97,7 @@ var MySql = {
                  let error = document.getElementById('searchError');
                 error.innerHTML = "No Results. Please modify your search and try again.";
                 error.style.display = "block";
+                console.log(queryReturned.Result);
             }
 
         }
