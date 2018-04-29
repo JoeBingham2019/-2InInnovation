@@ -180,7 +180,7 @@ const search = () => {
         //console.log('people');
         const concatNames = searchTerm.replace(/\s+/g, '');
 
-        query = `Select * from user where concat(firstName, lastName) like "%${concatNames}%"`;
+        query = `Select * from myGroups where concat(firstName, lastName) like "%${concatNames}%"`;
     } else if (locationSearch.checked){
         //console.log('location');
         query = `Select * from studyGroup where location like "%${searchTerm}%"`;
@@ -192,7 +192,6 @@ const search = () => {
         document.getElementById('searchResult').innerHTML = "";
         MySql.Execute(query, MySql._internalSearchCallback);
     } else {
-        console.log('it ran');
         let error = document.getElementById('searchError');
         error.innerHTML = "Woops - error! Please make sure a button is pushed or the textbox is not empty.";
         error.style.display = "block";
@@ -222,27 +221,8 @@ function initMap(latNumber, lonNumber) {
             var markerOptions   = {position: geoLocationASU, map: mapper};
             var marker = new google.maps.Marker(markerOptions);
             //console.log("map");
+
 }
-
-
-
-
-
-var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-var mapOptions = {
- zoom: 4,
- center: myLatlng
-}
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-// Place a draggable marker on the map
-var marker = new google.maps.Marker({
-   position: myLatlng,
-   map: map,
-   draggable:true,
-   title:"Drag me!"
-});
-
 
 const creatGroup = () => {
    let classID = document.getElementById('ClassName')
@@ -339,5 +319,5 @@ function join() {
    MySql.Execute(query, MySql._internalJoinCallback);
    console.log("success!");
 
-  
+}
 

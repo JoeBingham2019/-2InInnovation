@@ -33,10 +33,18 @@ var MySql = {
     },
     _internalSearchCallback : function(queryReturned) {
 
+        let tableCheck = document.getElementById('resultsTable');
+
+        if(tableCheck != null){
+            tableCheck.remove();
+        }
 
         if (!queryReturned.Success) {
             alert(queryReturned.Error);
         } else {
+            if(queryReturned.Result.length > 0)
+            {
+            console.log(queryReturned.Result);
             document.getElementById('searchError').style.display = "none";
             localStorage.setItem("searchResult", JSON.stringify(queryReturned.Result));
 
@@ -61,11 +69,11 @@ var MySql = {
 
                     var cell     = document.createElement("td");
                     var cellContent = document.createElement('a');
-                    cellContent.setAttribute('href', "#");
+                    tableRow.setAttribute('href', "#");
 
                     var groupID = Object.values(queryReturned.Result[i])[0];
 
-                    cellContent.setAttribute('onclick', `showDetail(event, 'groupDetail', '${groupID}')`);
+                    tableRow.setAttribute('onclick', `showDetail(event, 'groupDetail', '${groupID}')`);
                     console.log(cellContent);
 
                     cellContent.innerHTML = Object.values(queryReturned.Result[i])[1];
@@ -85,6 +93,12 @@ var MySql = {
                 table.setAttribute("border", "1");
                 table.style.borderCollapse="collapse";
                 body.appendChild(table);
+            } else {
+                 let error = document.getElementById('searchError');
+                error.innerHTML = "No Results. Please modify your search and try again.";
+                error.style.display = "block";
+                console.log(queryReturned.Result);
+            }
 
         }
 
