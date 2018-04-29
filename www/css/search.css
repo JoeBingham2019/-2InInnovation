@@ -61,3 +61,32 @@
   text-align: center;
   color: red;
 }
+
+#resultsTable {
+  width: 90vw;
+  background-color: rgba(252, 252, 252, .5);
+  color: black;
+
+}
+
+
+#resultsTable tr, #resultsTable td {
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+
+
+}
+
+#resultsTable td {
+  padding: 2vh 0;
+
+}
+
+#resultsTable td a {
+  text-decoration: none;
+  color: black;
+
+
+}
+
