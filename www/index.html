@@ -153,7 +153,7 @@
          </div>
          <div class="groupCreate">
          <label class="groupLabel"># of People</label>
-         <select class="groupInput" type='text' id='numOfPeople'>
+         <!-- <select class="groupInput" type='text' id='numOfPeople' value=''>
            <option value="2">2</option>
            <option value="3">3</option>
            <option value="4">4</option>
@@ -163,7 +163,8 @@
            <option value="8">8</option>
            <option value="9">9</option>
            <option value="10">10</option>
-         </select>
+         </select> -->
+         <input class="groupInput" type='number' id='numOfPeople' value="2">
          </div>
 
          <div id="mapDiv">
@@ -177,21 +178,21 @@
 
          <div class="groupCreate">
          <label class="groupLabel">Start Time</label>
-         <input class="groupInput" type='time' id='startTime' value="12:00pm">
+         <input class="groupInput" type='time' id='startTime' value="12:00">
          </div>
 
          <div class="groupCreate">
          <label class="groupLabel">End Time</label>
-         <input class="groupInput" type='time' id='endTime' value="12:00pm">
+         <input class="groupInput" type='time' id='endTime' value="12:00">
          </div>
 
          <div class="groupCreate">
          <label class="groupLabel">Date</label>
-         <input class="groupInput" type='date' id='Date' value="04-30-18">
+         <input class="groupInput" type='date' id='Date' value="2018-04-30">
          </div>
 
          <div class="groupCreate">
-           <button Type="button" onClick="createGroup()">Create Group</button>
+           <button Type="button" onClick="creatGroup()">Create Group</button>
          </div>
 
      </div>
