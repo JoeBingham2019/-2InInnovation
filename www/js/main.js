@@ -238,8 +238,6 @@ const creatGroup = () => {
 }
 
 
-
-
 const confirmPassword = (thisObject) => {
     let firstPassword = document.getElementById('firstPassword').value;
     let secondPassword = thisObject.value;
