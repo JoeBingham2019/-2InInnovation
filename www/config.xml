@@ -40,6 +40,7 @@
     <!-- add any additional plugins below                                    -->
     <!-- =================================================================== -->
     <plugin name="cordova-plugin-statusbar"                     spec="2.4.2" />
+    <!-- <plugin name="cordova-plugin-geolocation"   spec="4.0.1" /> -->
 
     <!-- for android to open url referenced in allow-navigation below        -->
     <plugin name="cordova-plugin-whitelist"                     spec="1.3.3" />
@@ -96,5 +97,8 @@
     <platform name="ios">
         <allow-intent href="itms:*"      />   <!-- open app store        -->
         <allow-intent href="itms-apps:*" />
+        <!-- <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>We need location access to tell you where you are</string>
+        </edit-config> -->
     </platform>
 </widget>

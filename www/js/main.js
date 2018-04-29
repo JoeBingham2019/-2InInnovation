@@ -225,16 +225,7 @@ function initMap(latNumber, lonNumber) {
 }
 
 
-function join() {
-   let query = "";
-   let userId = localStorage.id;
-   let groupId = localStorage.selectedGroupId;
 
-   query = `INSERT INTO db_test_rur3ady.groupMembers (groupId, studentId) VALUES ('${groupId}', '${userId}');`;
-   console.log(query);
-   MySql.Execute(query, MySql._internalJoinCallback);
-   console.log("success!");
-}
 
 
 var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
@@ -268,6 +259,7 @@ const creatGroup = () => {
 
 
 
+
 const confirmPassword = (thisObject) => {
     let firstPassword = document.getElementById('firstPassword').value;
     let secondPassword = thisObject.value;
@@ -286,6 +278,7 @@ const confirmPassword = (thisObject) => {
     }
 
 }
+
 
 function  createMap() {
      var onSuccess = function(position) {
@@ -306,7 +299,6 @@ function  createMap() {
             //initMap('33.4166317','-111.9341069');
             latNumber = 33.4166317;
             lonNumber = -111.9341069;
-
 
         // }
             console.log(latNumber,lonNumber);
@@ -337,8 +329,6 @@ function  createMap() {
 
 
 
-
-
 function join() {
    let query = "";
    let userId = localStorage.id;
@@ -348,4 +338,6 @@ function join() {
    console.log(query);
    MySql.Execute(query, MySql._internalJoinCallback);
    console.log("success!");
-}
+
+  
+
