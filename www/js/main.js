@@ -128,24 +128,6 @@ const createAccount = () => {
 
 }
 
-const confirmPassword = (thisObject) => {
-    let firstPassword = document.getElementById('firstPassword').value;
-    let secondPassword = thisObject.value;
-
-
-    if(firstPassword.indexOf(secondPassword) > -1 ){
-        document.getElementById('passwordVerify').style.borderBottom = 'thick solid green';
-        if(firstPassword.length  === secondPassword.length){
-        confirmPassWordValue = true;
-        console.log(confirmPassWordValue);
-        }
-
-    } else {
-        document.getElementById('passwordVerify').style.borderBottom = 'thick solid red';
-
-    }
-
-}
 
 const create = () => {
     document.getElementById('create').click();
@@ -242,6 +224,62 @@ function initMap(latNumber, lonNumber) {
             //console.log("map");
 }
 
+
+
+
+
+var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+var mapOptions = {
+ zoom: 4,
+ center: myLatlng
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+// Place a draggable marker on the map
+var marker = new google.maps.Marker({
+   position: myLatlng,
+   map: map,
+   draggable:true,
+   title:"Drag me!"
+});
+
+
+const creatGroup = () => {
+   let classID = document.getElementById('ClassName')
+   let numofPeople = document.getElementById('numofPeople')
+   let locDescription = document.getElementById('locDesc')
+   let startTime = document.getElementById('startTime')
+   let endTime = document.getElementById('endTime')
+   let date = document.getElementById('Date')
+
+   let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + currentLat + "','" + currentLon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numofPeople + "')";
+
+   MySql.Execute(groupInsert,MySql._internalJoinCallback)
+}
+
+
+
+
+const confirmPassword = (thisObject) => {
+    let firstPassword = document.getElementById('firstPassword').value;
+    let secondPassword = thisObject.value;
+
+
+    if(firstPassword.indexOf(secondPassword) > -1 ){
+        document.getElementById('passwordVerify').style.borderBottom = 'thick solid green';
+        if(firstPassword.length  === secondPassword.length){
+        confirmPassWordValue = true;
+        console.log(confirmPassWordValue);
+        }
+
+    } else {
+        document.getElementById('passwordVerify').style.borderBottom = 'thick solid red';
+
+    }
+
+}
+
+
 function  createMap() {
      var onSuccess = function(position) {
         localStorage.setItem('currentlat', position.coords.latitude);
@@ -262,7 +300,6 @@ function  createMap() {
             latNumber = 33.4166317;
             lonNumber = -111.9341069;
 
-            
         // }
             console.log(latNumber,lonNumber);
             var mapElement      = document.getElementById('mapDiv');
@@ -292,22 +329,6 @@ function  createMap() {
 
 
 
-const creatGroup = () => {
-   let classID = document.getElementById('ClassName').value;
-   let numOfPeople = document.getElementById('numOfPeople').value;
-   let locDescription = document.getElementById('locDesc').value;
-   let startTime = document.getElementById('startTime').value;
-   let endTime = document.getElementById('endTime').value;
-   let date = document.getElementById('Date').value;
-   console.log(date);
-   
-   let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + localStorage.currentlat + "','" + localStorage.currentlon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numOfPeople + "')";
-   console.log(groupInsert);
-   
-   MySql.Execute(groupInsert,MySql._internalJoinCallback);
-}
-
-
 function join() {
    let query = "";
    let userId = localStorage.id;
@@ -317,4 +338,6 @@ function join() {
    console.log(query);
    MySql.Execute(query, MySql._internalJoinCallback);
    console.log("success!");
-}
+
+  
+

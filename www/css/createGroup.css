@@ -28,13 +28,28 @@ background-color: black;
  display: inline-block;
 }
 
+
+
+#groupCreateButton {
+  margin-top: 2vh;
+  margin-left: 32vw;
+  width: 32vw;
+  height: 10vw;
+  background-color: white;
+  border-style: none;
+  font-size: 5vw;
+
+}
+
 #resultsTable {
   width: 90vw;
   background-color: rgba(107, 189, 0, .5);
   color: red;
+
 }
 
 #mapDiv {
 	width:40vh;
 	height: 40vh;
+
 }
