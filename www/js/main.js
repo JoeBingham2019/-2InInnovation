@@ -60,7 +60,10 @@ function showTab(event, tabName) {
           tabLinkElems[i].className.replace(" active", "");
     }
 
-
+    if (tabName == "createGroupContent")
+    {
+        createMap();
+    }
 
     // Show the current tab, and add an "active" class to the link
     document.getElementById(tabName).style.display = "block";
@@ -289,4 +292,82 @@ const creatGroup = () => {
    let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + currentLat + "','" + currentLon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numofPeople + "')";
 
    MySql.Execute(groupInsert,MySql._internalJoinCallback)
+}
+
+
+function  createMap() {
+     var onSuccess = function(position) {
+        localStorage.setItem('currentlat', position.coords.latitude);
+        localStorage.setItem('currentlon', position.coords.longitude);
+    };
+        //navigator.geolocation.getCurrentPosition(onSuccess);
+        var latNumber;
+        var lonNumber;
+        // if (localStorage.currentlon != null || localStorage.currentlat != null)
+        // {
+        //     latNumber = localStorage.currentlat;
+        //     latNumber = localStorage.currentlon;
+        //     //initMap(localStorage.currentlat,localStorage.currentlon);
+        // }
+        // else
+        // {
+            //initMap('33.4166317','-111.9341069');
+            latNumber = 33.4166317;
+            lonNumber = -111.9341069;
+
+
+        // }
+            console.log(latNumber,lonNumber);
+            var mapElement      = document.getElementById('mapDiv');
+            latNumber = Number(latNumber);
+            lonNumber = Number(lonNumber);
+            var geoLocationASU  = {lat: latNumber, lng: lonNumber};
+            var mapOptions      = {zoom: 18, center: geoLocationASU};
+
+            var mapper = new google.maps.Map(mapElement, mapOptions);
+
+            var markerOptions   = {position: geoLocationASU, map: mapper, draggable:true, title:"Drag me!"};
+            var marker = new google.maps.Marker(markerOptions);
+
+            // mapper.addListener('mouseup', function() {
+            //     localStorage.setItem('currentlat',marker.position.lat());
+            //     localStorage.setItem('currentlon',marker.position.lng());
+            //     console.log('record success');
+            // });
+            google.maps.event.addListener(marker, 'mouseup', function() {
+                localStorage.setItem('currentlat',marker.position.lat());
+                localStorage.setItem('currentlon',marker.position.lng());
+                console.log(localStorage.currentlat,localStorage.currentlon);
+            });
+
+
+}
+
+
+
+const creatGroup = () => {
+   let classID = document.getElementById('ClassName').value;
+   let numOfPeople = document.getElementById('numOfPeople').value;
+   let locDescription = document.getElementById('locDesc').value;
+   let startTime = document.getElementById('startTime').value;
+   let endTime = document.getElementById('endTime').value;
+   let date = document.getElementById('Date').value;
+   console.log(date);
+
+   let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + localStorage.currentlat + "','" + localStorage.currentlon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numOfPeople + "')";
+   console.log(groupInsert);
+
+   MySql.Execute(groupInsert,MySql._internalJoinCallback);
+}
+
+
+function join() {
+   let query = "";
+   let userId = localStorage.id;
+   let groupId = localStorage.selectedGroupId;
+
+   query = `INSERT INTO db_test_rur3ady.groupMembers (groupId, studentId) VALUES ('${groupId}', '${userId}');`;
+   console.log(query);
+   MySql.Execute(query, MySql._internalJoinCallback);
+   console.log("success!");
 }
