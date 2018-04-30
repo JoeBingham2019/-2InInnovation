@@ -89,14 +89,23 @@
     margin-left: 17vw;
     width: 27vw;
     margin-top: 2vh;
+    height: 7vw;
   }
 
   #createButton {
     float: left;
-    width: 27vw;
+    width: 27vw !important;
     height: 10vw;
     margin-top: 9vh;
-    margin-left: 9vh;
+    margin-left: 17vh !important;
+    height: 7vw !important;
   }
+
+  #loginHeading {
+    /* padding: 30vh 40vw; */
+
+    padding-top: 5vh;
+
+}
 
 }

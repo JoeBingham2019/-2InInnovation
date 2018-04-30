@@ -1,14 +1,19 @@
-#createBody{
+/*#createGroupBody{
  background-image: url("../img/search.jpg");
  background-position: center;
  background-size: cover;
  height: 90vh;
  width: 100vw;
-}
+}*/
 
 .groupCreate {
  margin: auto;
  padding: 2vh 0;
+}
+
+#createGroupHeading {
+  margin: 0vh 24vw;
+  padding: 3vh 0;
 }
 
 .groupInput {
@@ -19,6 +24,7 @@
  border-right-style: none;
  width: 50vw;
  font-size: 4vw;
+ color: white;
 }
 
 .groupLabel {
@@ -34,7 +40,7 @@
 #groupCreateButton {
   margin-top: 2vh;
   margin-left: 32vw;
-  width: 32vw;
+  width: 40vw;
   height: 12vw;
   background-color: white;
   border-style: none;
@@ -53,13 +59,11 @@
 
 
 #createGroupBody{
-  height: 200vh;
+  height: auto;
   width: 100vw;
-  background: rgb(2,0,36);
-  background: -webkit-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
-  background: -o-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
-  background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+ background-image: url("../img/search.jpg");
   margin: 0;
   padding: 0;
   z-index: 10;
+  color: white;
 }

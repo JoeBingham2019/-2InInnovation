@@ -16,6 +16,26 @@ let confirmPassWordValue = false;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 
+const confirmPassword = (thisObject) => {
+    console.log('test');
+    let firstPassword = document.getElementById('firstPassword').value;
+    let secondPassword = thisObject.value;
+
+
+    if(firstPassword.indexOf(secondPassword) > -1 ){
+        document.getElementById('passwordVerify').style.borderBottom = 'thick solid green';
+        if(firstPassword.length  === secondPassword.length){
+        confirmPassWordValue = true;
+        console.log(confirmPassWordValue);
+        }
+
+    } else {
+        document.getElementById('passwordVerify').style.borderBottom = 'thick solid red';
+
+    }
+
+}
+
 const hideElement = () => {
     document.getElementById('tabList').style.marginLeft = "0";
     document.getElementById('login').style.display = "none";
@@ -96,7 +116,7 @@ function showDetail(event, tabName, groupID) {
 
 /*hide nav on device ready and show the login screen*/
 function onDeviceReady(){
-    document.getElementById("createGroup").addEventListener("click", hideElement);
+    // document.getElementById("createGroup").addEventListener("click", hideElement);
     document.getElementById('tabList').style.marginLeft = "-99999px";
     document.getElementById('tabList').style.height = "0vh";
     showHomeTab();
@@ -152,7 +172,7 @@ const entry = () => {
                     document.getElementById('login').style.display = "none";
                     document.getElementById('create').style.display = "none";
                     document.getElementById('tabList').style.height = "auto";
-                    document.getElementById('secondPage').click();
+                    document.getElementById('primaryPage').click();
 }
 
 const logout = () => {
@@ -307,24 +327,7 @@ const creatGroup = () => {
 
 
 
-const confirmPassword = (thisObject) => {
-    let firstPassword = document.getElementById('firstPassword').value;
-    let secondPassword = thisObject.value;
 
-
-    if(firstPassword.indexOf(secondPassword) > -1 ){
-        document.getElementById('passwordVerify').style.borderBottom = 'thick solid green';
-        if(firstPassword.length  === secondPassword.length){
-        confirmPassWordValue = true;
-        console.log(confirmPassWordValue);
-        }
-
-    } else {
-        document.getElementById('passwordVerify').style.borderBottom = 'thick solid red';
-
-    }
-
-}
 
 
 function  createMap() {
