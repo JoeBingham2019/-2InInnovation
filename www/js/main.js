@@ -52,7 +52,7 @@ function clearSearch(){
 }
 
 function findMe(){
-    document.getElementById('searchTerm').placeholder = "My Groups";
+    document.getElementById('searchTerm').value = "My Groups";
 }
 
 function showHomeTab() {
