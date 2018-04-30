@@ -130,7 +130,7 @@
     <div id="search"   class="tabContent">
       <div id='searchContainer'>
         <div id='searchInput'>
-          <input type='text' id='searchTerm' placeholder="ex. CIS 105" /><button type='button' onclick='search()'>Search</button>
+          <input type='text' id='searchTerm' placeholder="ex. CIS 105" />
           <div id='multiButtonSearch'>
             <div class='button selectedButton' onclick='toggleButton(this);clearSearch()'>
               <label class='searchLabel '>Class</label>
@@ -149,9 +149,11 @@
               <label class='searchLabel'>My Groups</label>
               <input class='radioSearch' type='radio' name='search' id='searchMe'>
             </div>
+            <button type='button' onclick='search()'>Search</button>
           </div>
+          <p id='searchError'></p>
         </div>
-        <p id='searchError'></p>
+
       </div>
 
       <div id='searchResult'>
@@ -221,7 +223,7 @@
     <div id="myProfile"   class="tabContent">
       <button type='button' onclick='groupSearch()'>Show Your Groups</button>
       <div id="myProfileResult">
-        
+
       </div>
 
     </div>-->

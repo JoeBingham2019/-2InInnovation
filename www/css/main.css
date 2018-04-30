@@ -29,10 +29,10 @@ ul.tab li {
 ul.tab li a {
     display:        inline-block;
     color:          black;
-    padding:                3vh 2vh 0vh 2vh; /* top right bot left */
+    padding:                3vh 2.5vh 0vh 2.5vh; /* top right bot left */
     text-decoration:    none;  /* remove underline for the <a> */
     transition:       0.3s;
-    font-size:        3vh;
+    font-size:        2.5vh;
     height:         10vh;
 }
 
