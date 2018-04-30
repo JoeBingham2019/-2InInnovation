@@ -35,16 +35,31 @@
   margin-top: 2vh;
   margin-left: 32vw;
   width: 32vw;
-  height: 10vw;
+  height: 12vw;
   background-color: white;
   border-style: none;
   font-size: 5vw;
-
 }
 
 
 #mapDiv {
-	width:40vh;
-	height: 40vh;
 
+	width:70vw;
+	height: 50vh;
+	margin: auto;
+	border-color: black;
+	border-style: solid;
+}
+
+
+#createGroupBody{
+  height: 200vh;
+  width: 100vw;
+  background: rgb(2,0,36);
+  background: -webkit-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: -o-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  margin: 0;
+  padding: 0;
+  z-index: 10;
 }
