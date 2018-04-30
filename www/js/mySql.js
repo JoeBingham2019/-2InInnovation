@@ -110,9 +110,16 @@ var MySql = {
             alert(queryReturned.Error);
         } else {
 
-            document.getElementById("detail").innerHTML =
-                    JSON.stringify(queryReturned.Result, null, 2);
+            // document.getElementById("detail").innerHTML =
+            //         JSON.stringify(queryReturned.Result, null, 2);
             //console.log(queryReturned.Result);
+            var date = new Date(Object.values(queryReturned.Result[0])[5]);
+
+            document.getElementById('detailCourseName').innerHTML = "Course Name: "+ Object.values(queryReturned.Result[0])[1] + "<br/>";
+            document.getElementById('detailLocation').innerHTML = "Location: " + Object.values(queryReturned.Result[0])[4] + "<br/>";
+            document.getElementById('detailStudyDate').innerHTML = "Study Date: "+ date.getFullYear() + "-"+ date.getMonth() + "-" + date.getDay() + "<br/>";
+            document.getElementById('detailStartTime').innerHTML = "Start Time: "+Object.values(queryReturned.Result[0])[6] + "<br/>";
+            document.getElementById('detailEndTime').innerHTML = "End Time" +Object.values(queryReturned.Result[0])[7] + "<br/>";
             var lat, lon;
             lat = Object.values(queryReturned.Result[0])[2];
             lon = Object.values(queryReturned.Result[0])[3];
