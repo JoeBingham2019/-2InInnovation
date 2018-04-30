@@ -50,7 +50,7 @@ function clearSearch(){
 }
 
 function findMe(){
-    document.getElementById('searchTerm').value = "My Groups";
+    document.getElementById('searchTerm').placeholder = "My Groups";
 }
 
 function showHomeTab() {
