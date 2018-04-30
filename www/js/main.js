@@ -98,7 +98,7 @@ function showTab(event, tabName) {
     document.getElementById(tabName).style.display = "block";
     event.currentTarget.className += " active";
 
-    //document.getElementById('resultsTable').innerHTML = "";
+    
 }
 
 
@@ -202,29 +202,30 @@ const search = () => {
     const myGroupsSearch = document.getElementById('searchMe');
      let query = "";
 
-
+    // determine search category
     if(searchTerm.length === 0){
         query = "error";
     } else if(classSearch.checked){
 
         query = `Select * from studyGroup where courseName like "%${searchTerm}%"`;
-        //console.log(query);
+        
     } else if (peopleSearch.checked){
-        //console.log('people');
+        
         const concatNames = searchTerm.replace(/\s+/g, '');
 
         query = `Select * from myGroups where concat(firstName, lastName) like "%${concatNames}%"`;
     } else if (locationSearch.checked){
-        //console.log('location');
+        
         query = `Select * from studyGroup where location like "%${searchTerm}%"`;
     } else if (myGroupsSearch.checked){
-        //console.log('location');
+        
 
         query = `Select * from myGroups where studentId = ${searchId}`;
     }else {
         query = "error"
     }
 
+    // output
     if(query != "error"){
         document.getElementById('searchResult').innerHTML = "";
         MySql.Execute(query, MySql._internalSearchCallback);
@@ -234,40 +235,6 @@ const search = () => {
         error.style.display = "block";
     }
 }
-
-
-
-
-const groupSearch = () => {
-    //const searchTerm = localStorage.id;
-
-
-    //const classSearch = document.getElementById('searchClass');
-    //const peopleSearch = document.getElementById('searchPeople');
-    //const locationSearch = document.getElementById('searchLocation');
-     //let profileQuery = "";
-
-
-
-       let profileQuery = 'Select * from myGroups where studentId = 1123581321';
-        //console.log(query);
-
-
-
-
-    if(profileQuery != "error"){
-        document.getElementById('myProfileResult').innerHTML = "";
-        MySql.Execute(profileQuery, MySql._internalProfileCallback);
-    } else {
-        console.log('it ran');
-        let error = document.getElementById('searchError');
-        error.innerHTML = "Woops - error! Please make sure a button is pushed or the textbox is not empty.";
-        error.style.display = "block";
-    }
-
-
-}
-
 
 const toggleButton = (clickedObject) => {
     let activeButton = document.getElementsByClassName('selectedButton');
@@ -300,6 +267,7 @@ function initMap(latNumber, lonNumber) {
 
 
 const creatGroup = () => {
+   //create group
    let classID = document.getElementById('ClassName').value;
    let numofPeople = document.getElementById('numOfPeople').value;
    let locDescription = document.getElementById('locDesc').value;
@@ -311,16 +279,13 @@ const creatGroup = () => {
    console.log(groupInsert);
    MySql.Execute(groupInsert,MySql._internalJoinCallback);
 
-   //document.getElementById('searchTerm').value = classID;
-   //showTab(event, 'search');
-
+   //get the groupid, join the group
    var query = `SELECT * FROM studyGroup WHERE groupId=(SELECT MAX(groupId) FROM studyGroup);`;
    console.log(query);
    if(query != "error"){
-        //MySql.Execute(query, MySql._internalCreateJoinCallback);
+        
         MySql.Execute(query, MySql._internalCreateJoinCallback);
-        //showDetail(event, 'groupDetail', localStorage.selectedGroupId);
-
+        
     }
 
 }
@@ -332,54 +297,40 @@ const creatGroup = () => {
 
 
 function  createMap() {
-     var onSuccess = function(position) {
-        localStorage.setItem('currentlat', position.coords.latitude);
-        localStorage.setItem('currentlon', position.coords.longitude);
-    };
-        //navigator.geolocation.getCurrentPosition(onSuccess);
-        var latNumber;
-        var lonNumber;
-        // if (localStorage.currentlon != null || localStorage.currentlat != null)
-        // {
-        //     latNumber = localStorage.currentlat;
-        //     latNumber = localStorage.currentlon;
-        //     //initMap(localStorage.currentlat,localStorage.currentlon);
-        // }
-        // else
-        // {
-            //initMap('33.4166317','-111.9341069');
-            latNumber = 33.4166317;
-            lonNumber = -111.9341069;
 
-        // }
-            console.log(latNumber,lonNumber);
-            var mapElement      = document.getElementById('mapDiv');
-            latNumber = Number(latNumber);
-            lonNumber = Number(lonNumber);
-            var geoLocationASU  = {lat: latNumber, lng: lonNumber};
-            var mapOptions      = {zoom: 18, center: geoLocationASU};
+    //initialize a map in create tab and start at w.p.carey school
+    var latNumber;
+    var lonNumber;
+        
+    latNumber = 33.4166317;
+    lonNumber = -111.9341069;
 
-            var mapper = new google.maps.Map(mapElement, mapOptions);
+        
+    console.log(latNumber,lonNumber);
+    var mapElement      = document.getElementById('mapDiv');
+    latNumber = Number(latNumber);
+    lonNumber = Number(lonNumber);
+    var geoLocationASU  = {lat: latNumber, lng: lonNumber};
+    var mapOptions      = {zoom: 18, center: geoLocationASU};
 
-            var markerOptions   = {position: geoLocationASU, map: mapper, draggable:true, title:"Drag me!"};
-            var marker = new google.maps.Marker(markerOptions);
+    var mapper = new google.maps.Map(mapElement, mapOptions);
 
-            // mapper.addListener('mouseup', function() {
-            //     localStorage.setItem('currentlat',marker.position.lat());
-            //     localStorage.setItem('currentlon',marker.position.lng());
-            //     console.log('record success');
-            // });
-            google.maps.event.addListener(marker, 'mouseup', function() {
-                localStorage.setItem('currentlat',marker.position.lat());
-                localStorage.setItem('currentlon',marker.position.lng());
-                console.log(localStorage.currentlat,localStorage.currentlon);
-            });
+    var markerOptions   = {position: geoLocationASU, map: mapper, draggable:true, title:"Drag me!"};
+    var marker = new google.maps.Marker(markerOptions);
+
+
+    //store the marker position in localStorage
+    google.maps.event.addListener(marker, 'mouseup', function() {
+        localStorage.setItem('currentlat',marker.position.lat());
+        localStorage.setItem('currentlon',marker.position.lng());
+        console.log(localStorage.currentlat,localStorage.currentlon);
+    });
 
 
 }
 
 
-
+//join a group
 function join() {
    let query = "";
    let userId = localStorage.id;
@@ -389,7 +340,7 @@ function join() {
    console.log(query);
    MySql.Execute(query, MySql._internalJoinCallback);
    console.log("success!");
-   //showDetail(event, 'groupDetail', localStorage.selectedGroupId);
+
    document.getElementById('secondPage').click();
 
 }
