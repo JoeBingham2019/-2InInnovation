@@ -43,7 +43,10 @@ background-color: black;
 
 
 #mapDiv {
-	width:100vw;
-	height: 40vh;
+	width:70vw;
+	height: 50vh;
+	margin: auto;
+	border-color: black;
+	border-style: solid;
 
 }

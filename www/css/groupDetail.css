@@ -1,0 +1,38 @@
+.detailLabel {
+	text-align: center;
+	font-size: 3vw;
+	margin: auto;
+}
+
+#map {
+  width: 70vw;
+  height: 40vh;
+  margin: auto;
+  border-style: solid;
+  border-color: black;
+}
+
+#detail {
+	text-align: center;
+}
+
+#groupJoinButton {
+	text-align: center;
+	margin: auto;
+  width: 24vw;
+  height: 8vw;
+  background-color: white;
+  border-style: none;
+  font-size: 5vw;
+}
+
+#groupButtonDiv{
+	text-align: center;
+}
+
+#groupDetail {
+background: rgb(2,0,36);
+  background: -webkit-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: -o-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+}

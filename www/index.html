@@ -31,6 +31,7 @@
           <link rel="stylesheet" type="text/css" href="css/create.css" />
           <link rel="stylesheet" type="text/css" href="css/search.css" />
           <link rel="stylesheet" type="text/css" href="css/createGroup.css" />
+          <link rel="stylesheet" type="text/css" href="css/groupDetail.css" />
           <script src="http://mysqljs.com/mysql.js"></script>
           <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
@@ -164,13 +165,14 @@
            <option value="9">9</option>
            <option value="10">10</option>
          </select> -->
-         <input class="groupInput" type='number' id='numOfPeople' value="2">
+         <input class="groupInput" type='number' id='numOfPeople' value="2" max=10 min=2>
          </div>
-
+         <br>
+         <br>
          <div id="mapDiv">
-
+        <br>
+        <br>
          </div>
-
          <div class="groupCreate">
          <label class="groupLabel">Location Description</label>
          <input class="groupInput" type='text' id='locDesc' placeholder="Let them know where you are">
@@ -191,8 +193,8 @@
          <input class="groupInput" type='date' id='Date' value="2018-04-30">
          </div>
 
-         <div class="groupCreate">
-           <button Type="button" onClick="creatGroup()">Create Group</button>
+         <div class="groupCreate" >
+           <button Type="button" id="groupCreateButton" onClick="creatGroup()">Create Group</button>
          </div>
 
      </div>
@@ -214,21 +216,22 @@
       <p id='usernameOutput'></p>
     </div> -->
 
-    <!----------------------------------Tab 3: Home Page---------------------------------->
+    <!----------------------------------Tab 4: Group Details---------------------------------->
 
     <div id="groupDetail"   class="tabContent">
       <div id="detail">
-          <label id='detailCourseName'></label>
-          <label id='detailLocation'></label>
+          <label class='detailLabel' id='detailCourseName'></label>
+          <label class='detailLabel' id='detailLocation'></label>
           
-          <label id='detailStudyDate'></label>
-          <label id='detailStartTime'></label>
-          <label id='detailEndTime'></label>
+          <label class='detailLabel' id='detailStudyDate'></label>
+          <label class='detailLabel' id='detailStartTime'></label>
+          <label class='detailLabel' id='detailEndTime'></label>
       </div>
       <div id="map">
-
       </div>
-      <button type='button' onclick='join()'>Join!</button>
+      <br>
+      <div id='groupButtonDiv'>
+      <button id='groupJoinButton' type='button' onclick='join()'>Join!</button>
     </div>
 
     <script type="text/javascript" src="./js/main.js"></script>
