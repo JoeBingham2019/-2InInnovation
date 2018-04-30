@@ -292,36 +292,20 @@ function initMap(latNumber, lonNumber) {
 
 
 
-
-var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-var mapOptions = {
- zoom: 4,
- center: myLatlng
-}
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-// Place a draggable marker on the map
-var marker = new google.maps.Marker({
-   position: myLatlng,
-   map: map,
-   draggable:true,
-   title:"Drag me!"
-});
-
-
 const creatGroup = () => {
-   let classID = document.getElementById('ClassName')
-   let numofPeople = document.getElementById('numofPeople')
-   let locDescription = document.getElementById('locDesc')
-   let startTime = document.getElementById('startTime')
-   let endTime = document.getElementById('endTime')
-   let date = document.getElementById('Date')
+   let classID = document.getElementById('ClassName').value;
+   let numofPeople = document.getElementById('numOfPeople').value;
+   let locDescription = document.getElementById('locDesc').value;
+   let startTime = document.getElementById('startTime').value;
+   let endTime = document.getElementById('endTime').value;
+   let date = document.getElementById('Date').value;
 
-   let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + currentLat + "','" + currentLon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numofPeople + "')";
+   let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + localStorage.currentlat + "','" + localStorage.currentlon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numofPeople + "')";
+   console.log(groupInsert);
+   MySql.Execute(groupInsert,MySql._internalJoinCallback);
 
-   MySql.Execute(groupInsert,MySql._internalJoinCallback)
-
-   document.getElementById('groupDetail').click();
+   document.getElementById('searchTerm').value = classID;
+   showTab(event, 'search');
 }
 
 
