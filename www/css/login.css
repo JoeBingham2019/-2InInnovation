@@ -2,7 +2,8 @@
   height: 100vh;
   width: 100vw;
   background: black;
-
+  background-image: url("../img/search.jpg");
+  color:white;
   margin: 0;
   padding: 0;
   z-index: 10;
@@ -59,9 +60,9 @@
   border-style: none;
   font-size: 5vw;
 }
+
 #loginHeading{
-    background-image: url("../img/search.jpg");
-    color:white;
+
 }
 
 #createButton {
@@ -81,3 +82,21 @@
   margin-top: 3vh;
 }
 
+@media only screen and (min-width: 600px){
+
+  #loginButton {
+    float: left;
+    margin-left: 17vw;
+    width: 27vw;
+    margin-top: 2vh;
+  }
+
+  #createButton {
+    float: left;
+    width: 27vw;
+    height: 10vw;
+    margin-top: 9vh;
+    margin-left: 9vh;
+  }
+
+}

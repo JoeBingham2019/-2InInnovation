@@ -1,13 +1,17 @@
+
+
 #searchContainer {
   background-image: url("../img/search.jpg");
   background-position: center;
   background-size: cover;
-  height: 90vh;
+  background-repeat: repeat-y;
+  min-height: 90vh;
+  height: auto;
   width: 100vw;
 }
 
 #searchInput {
-  padding: 38vh 5vw;
+  padding: 30vh 5vw;
 }
 
 #searchInput #searchTerm {
@@ -81,7 +85,7 @@
 }
 
 #resultsTable td {
-  padding: 2vh 0;
+  padding: 1.75vh 0;
 
 }
 

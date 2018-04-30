@@ -184,7 +184,7 @@ const search = () => {
         query = "error";
     } else if(classSearch.checked){
 
-        query = `Select * from myGroups where courseName like "%${searchTerm}%"`;
+        query = `Select * from studyGroup where courseName like "%${searchTerm}%"`;
         //console.log(query);
     } else if (peopleSearch.checked){
         //console.log('people');
@@ -193,10 +193,10 @@ const search = () => {
         query = `Select * from myGroups where concat(firstName, lastName) like "%${concatNames}%"`;
     } else if (locationSearch.checked){
         //console.log('location');
-        query = `Select * from myGroups where location like "%${searchTerm}%"`;
+        query = `Select * from studyGroup where location like "%${searchTerm}%"`;
     } else if (myGroupsSearch.checked){
         //console.log('location');
-    
+
         query = `Select * from myGroups where studentId = ${searchId}`;
     }else {
         query = "error"
@@ -217,7 +217,7 @@ const search = () => {
 
 const groupSearch = () => {
     //const searchTerm = localStorage.id;
-    
+
 
     //const classSearch = document.getElementById('searchClass');
     //const peopleSearch = document.getElementById('searchPeople');
@@ -228,9 +228,9 @@ const groupSearch = () => {
 
        let profileQuery = 'Select * from myGroups where studentId = 1123581321';
         //console.log(query);
-     
-    
-    
+
+
+
 
     if(profileQuery != "error"){
         document.getElementById('myProfileResult').innerHTML = "";
@@ -245,7 +245,7 @@ const groupSearch = () => {
 
 }
 
- 
+
 const toggleButton = (clickedObject) => {
     let activeButton = document.getElementsByClassName('selectedButton');
     activeButton[0].childNodes[3].removeAttribute("checked");
