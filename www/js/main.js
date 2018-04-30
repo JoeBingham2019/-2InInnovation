@@ -103,11 +103,12 @@ function showTab(event, tabName) {
 
 
 function showDetail(event, tabName, groupID) {
-    let query;
-    query = `Select * from studyGroup where groupID = "${groupID}"`;
-    if(query != "error"){
-        MySql.Execute(query, MySql._internalShowDetailCallback);
-    }
+
+    let query = `select * from myGroups where groupID = ${groupID} and studentId = ${localStorage.id}`;
+
+        MySql.Execute(query, MySql._internalCheckForGroupMembership);
+
+
     localStorage.setItem('selectedGroupId', groupID);
     showTab(event, tabName);
 }

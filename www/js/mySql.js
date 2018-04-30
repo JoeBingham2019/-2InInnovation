@@ -1,3 +1,5 @@
+let showJoinButton = true;
+
 var MySql = {
     _internalLoginCallback : function(queryReturned) {
 
@@ -104,6 +106,22 @@ var MySql = {
         }
 
     },
+    _internalCheckForGroupMembership : function(queryReturned){
+        document.getElementById('groupJoinButton').disabled = false;
+        document.getElementById('groupJoinButton').style.backgroundColor = 'white';
+        document.getElementById('groupJoinButton').style.opacity = '1';
+        document.getElementById('groupJoinButton').style.color = 'black';
+
+        if(queryReturned.Result.length > 0){
+            showJoinButton = false;
+        }
+
+        let query;
+        query = `Select * from studyGroup where groupID = "${localStorage.selectedGroupId}"`;
+        if(query != "error"){
+            MySql.Execute(query, MySql._internalShowDetailCallback);
+        }
+    },
     _internalShowDetailCallback : function(queryReturned) {
 
 
@@ -127,6 +145,17 @@ var MySql = {
             lon = Object.values(queryReturned.Result[0])[3];
             console.log(lat,lon);
             initMap(lat, lon);
+
+            console.log(showJoinButton);
+
+            if(!showJoinButton){
+                document.getElementById('groupJoinButton').disabled = true;
+                document.getElementById('groupJoinButton').style.backgroundColor = 'red';
+                document.getElementById('groupJoinButton').style.opacity = '.5';
+                document.getElementById('groupJoinButton').style.color = 'white';
+            }
+
+            showJoinButton = true;
         }
 
     },
