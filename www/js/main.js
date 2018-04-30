@@ -235,6 +235,8 @@ const creatGroup = () => {
    let groupInsert = "insert into studyGroup (courseName,lat,lon,location,studyDate,startTime,EndTime,maxSize) values ('" + classID + "','" + currentLat + "','" + currentLon + "','" + locDescription + "','" + date + "','" + startTime + "','" + endTime + "','" + numofPeople + "')";
 
    MySql.Execute(groupInsert,MySql._internalJoinCallback)
+
+   document.getElementById('groupDetail').click();
 }
 
 
@@ -316,6 +318,8 @@ function join() {
    console.log(query);
    MySql.Execute(query, MySql._internalJoinCallback);
    console.log("success!");
+
+   document.getElementById('secondPage').click();
 
 }
 
