@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 /*#createGroupBody{
  background-image: url("../img/search.jpg");
+=======
+#groupBody{
+background-color: black;
+>>>>>>> e51f580a8ba916445ec6e07ac37a166fda5f44a6
  background-position: center;
  background-size: cover;
  height: 90vh;
@@ -32,7 +37,6 @@
  font-size: 5vw;
  text-align: center;
  display: inline-block;
- color:white;
 }
 
 
@@ -49,14 +53,12 @@
 
 
 #mapDiv {
-
 	width:70vw;
 	height: 50vh;
 	margin: auto;
 	border-color: black;
 	border-style: solid;
 }
-
 
 #createGroupBody{
   height: auto;
