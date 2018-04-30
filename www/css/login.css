@@ -1,9 +1,10 @@
 #loginBody{
   height: 100vh;
   width: 100vw;
-  background: black;
-  background-image: url("../img/search.jpg");
-  color:white;
+  background: rgb(2,0,36);
+  background: -webkit-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: -o-linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,121,84,1) 0%, rgba(0,212,255,1) 100%);
   margin: 0;
   padding: 0;
   z-index: 10;
@@ -18,7 +19,6 @@
 }
 
 .loginLabel {
-  color:white;
   width: 40vw;
   font-size: 6vw;
   text-align: center;
@@ -27,7 +27,6 @@
 
 .loginInput {
   background-color: transparent;
-  color:white;
   border-bottom-color: white;
   border-top-style: none;
   border-left-style: none;
@@ -61,10 +60,6 @@
   font-size: 5vw;
 }
 
-#loginHeading{
-
-}
-
 #createButton {
   margin-top: 2vh;
   margin-left: 32vw;
@@ -82,21 +77,3 @@
   margin-top: 3vh;
 }
 
-@media only screen and (min-width: 600px){
-
-  #loginButton {
-    float: left;
-    margin-left: 17vw;
-    width: 27vw;
-    margin-top: 2vh;
-  }
-
-  #createButton {
-    float: left;
-    width: 27vw;
-    height: 10vw;
-    margin-top: 9vh;
-    margin-left: 9vh;
-  }
-
-}
