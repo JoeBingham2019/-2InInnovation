@@ -31,7 +31,7 @@
           <link rel="stylesheet" type="text/css" href="css/create.css" />
           <link rel="stylesheet" type="text/css" href="css/search.css" />
           <link rel="stylesheet" type="text/css" href="css/createGroup.css" />
-          <link rel="stylesheet" type="text/css" href="css/groupDetail.css" />
+          <link rel="stylesheet" type="text/css" href="css/welcome.css" />
           <script src="http://mysqljs.com/mysql.js"></script>
           <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
@@ -44,6 +44,7 @@
       <li><a href="#" class="tabLink " id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
       <li><a href="#" class="tabLink " id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
       <li><a href="#" class="tabLink hiddenLink" id='mapPage'         onclick="showTab(event, 'search')">Map</a></li>
+      <li><a href="#" class="tabLink" id='primaryPage'         onclick="showTab(event, 'welcome')">Welcome</a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'search')">Search</a></li>
       <li><a href="#" class="tabLink" id='createGroup'          onclick="showTab(event, 'createGroupContent' )">Create </a></li>
       <!---<li><a href="#" class="tabLink" id='profile'          onclick="showTab(event, 'myProfile')">Profile</a></li>---->
@@ -111,9 +112,20 @@
       </div>
     </div>
 
+      <!----------------------------------Tab 3: Welcome Page---------------------------------->
+    <div id='welcomeBody'>
+    <div id="welcome"   class="tabContent">
+        <h3 id='welcomeHeading'>Welcome
+         Study Buddies</h3>
+        <h4 id='welcomeLabel'> It's Study Time!</h4>
+        <h2 id= 'welcomeList'> Create || Find || Join </h2>
 
 
-  <!----------------------------------Tab 3: Home Page---------------------------------->
+      </div>
+    </div>
+
+
+  <!----------------------------------Tab 4: Home Page---------------------------------->
 
     <div id="search"   class="tabContent">
       <div id='searchContainer'>
@@ -148,7 +160,7 @@
 
     </div>
 
-  <!-------------------------------Tab 3: Create Group Tap---------------------------------->
+  <!-------------------------------Tab 5: Create Group Tap---------------------------------->
 
    <div id="createGroupContent" class="tabContent">
      <div id="createBody">
@@ -170,14 +182,13 @@
            <option value="9">9</option>
            <option value="10">10</option>
          </select> -->
-         <input class="groupInput" type='number' id='numOfPeople' value="2" max=10 min=2>
+         <input class="groupInput" type='number' id='numOfPeople' value="2">
          </div>
-         <br>
-         <br>
+
          <div id="mapDiv">
-        <br>
-        <br>
+
          </div>
+
          <div class="groupCreate">
          <label class="groupLabel">Location Description</label>
          <input class="groupInput" type='text' id='locDesc' placeholder="Let them know where you are">
@@ -198,8 +209,8 @@
          <input class="groupInput" type='date' id='Date' value="2018-04-30">
          </div>
 
-         <div class="groupCreate" >
-           <button Type="button" id="groupCreateButton" onClick="creatGroup()">Create Group</button>
+         <div class="groupCreate">
+           <button Type="button" onClick="creatGroup()">Create Group</button>
          </div>
 
      </div>
@@ -229,22 +240,17 @@
       <p id='usernameOutput'></p>
     </div> -->
 
-    <!----------------------------------Tab 4: Group Details---------------------------------->
+    <!----------------------------------Tab 3: Home Page---------------------------------->
 
     <div id="groupDetail"   class="tabContent">
+      <h3>Success!</h3>
       <div id="detail">
-          <label class='detailLabel' id='detailCourseName'></label>
-          <label class='detailLabel' id='detailLocation'></label>
-          
-          <label class='detailLabel' id='detailStudyDate'></label>
-          <label class='detailLabel' id='detailStartTime'></label>
-          <label class='detailLabel' id='detailEndTime'></label>
+
       </div>
       <div id="map">
+
       </div>
-      <br>
-      <div id='groupButtonDiv'>
-      <button id='groupJoinButton' type='button' onclick='join()'>Join!</button>
+      <button type='button' onclick='join()'>Join!</button>
     </div>
 
     <script type="text/javascript" src="./js/main.js"></script>
