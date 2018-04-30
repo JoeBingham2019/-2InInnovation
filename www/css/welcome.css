@@ -1,0 +1,30 @@
+#welcomeBody {
+  background-image: url("../img/search.jpg");
+
+}
+
+#welcomeHeading {
+  /*padding: 30vh 40vw;*/
+  text-align: center;
+  color:white;
+  padding-top: 15vh;
+  padding-bottom: 10vh;
+  font-size: 8vw;
+  font-family: "Comic Sans MS", sans-serif;
+}
+
+#welcomeLabel {
+  text-align: center;
+  font-size: 6vw;
+  color:gray;
+  font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+#welcomeList{
+  text-align: center;
+  color: grey;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+      font-size: 2vw;
+
+}
+

@@ -24,7 +24,14 @@ const hideElement = () => {
 }
 
 
+function clearSearch(){
+    document.getElementById('searchTerm').value = "";
+    document.getElementById('resultsTable').innerHTML = "";
+}
 
+function findMe(){
+    document.getElementById('searchTerm').value = "My Groups";
+}
 
 function showHomeTab() {
     let usernameTest = localStorage.getItem('username');
@@ -68,6 +75,8 @@ function showTab(event, tabName) {
     // Show the current tab, and add an "active" class to the link
     document.getElementById(tabName).style.display = "block";
     event.currentTarget.className += " active";
+
+    document.getElementById('resultsTable').innerHTML = "";
 }
 
 
@@ -162,19 +171,20 @@ const logout = () => {
 
 const search = () => {
     const searchTerm = document.getElementById('searchTerm').value;
+    const searchId = localStorage.id;
 
     const classSearch = document.getElementById('searchClass');
     const peopleSearch = document.getElementById('searchPeople');
     const locationSearch = document.getElementById('searchLocation');
-     let query = ""
-
+    const myGroupsSearch = document.getElementById('searchMe');
+     let query = "";
 
 
     if(searchTerm.length === 0){
         query = "error";
     } else if(classSearch.checked){
 
-        query = `Select * from studyGroup where courseName like "%${searchTerm}%"`;
+        query = `Select * from myGroups where courseName like "%${searchTerm}%"`;
         //console.log(query);
     } else if (peopleSearch.checked){
         //console.log('people');
@@ -183,8 +193,12 @@ const search = () => {
         query = `Select * from myGroups where concat(firstName, lastName) like "%${concatNames}%"`;
     } else if (locationSearch.checked){
         //console.log('location');
-        query = `Select * from studyGroup where location like "%${searchTerm}%"`;
-    } else {
+        query = `Select * from myGroups where location like "%${searchTerm}%"`;
+    } else if (myGroupsSearch.checked){
+        //console.log('location');
+    
+        query = `Select * from myGroups where studentId = ${searchId}`;
+    }else {
         query = "error"
     }
 
@@ -196,10 +210,42 @@ const search = () => {
         error.innerHTML = "Woops - error! Please make sure a button is pushed or the textbox is not empty.";
         error.style.display = "block";
     }
+}
+
+
+
+
+const groupSearch = () => {
+    //const searchTerm = localStorage.id;
+    
+
+    //const classSearch = document.getElementById('searchClass');
+    //const peopleSearch = document.getElementById('searchPeople');
+    //const locationSearch = document.getElementById('searchLocation');
+     //let profileQuery = "";
+
+
+
+       let profileQuery = 'Select * from myGroups where studentId = 1123581321';
+        //console.log(query);
+     
+    
+    
+
+    if(profileQuery != "error"){
+        document.getElementById('myProfileResult').innerHTML = "";
+        MySql.Execute(profileQuery, MySql._internalProfileCallback);
+    } else {
+        console.log('it ran');
+        let error = document.getElementById('searchError');
+        error.innerHTML = "Woops - error! Please make sure a button is pushed or the textbox is not empty.";
+        error.style.display = "block";
+    }
 
 
 }
 
+ 
 const toggleButton = (clickedObject) => {
     let activeButton = document.getElementsByClassName('selectedButton');
     activeButton[0].childNodes[3].removeAttribute("checked");
@@ -221,8 +267,27 @@ function initMap(latNumber, lonNumber) {
             var markerOptions   = {position: geoLocationASU, map: mapper};
             var marker = new google.maps.Marker(markerOptions);
             //console.log("map");
-
 }
+
+
+
+
+
+var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+var mapOptions = {
+ zoom: 4,
+ center: myLatlng
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+// Place a draggable marker on the map
+var marker = new google.maps.Marker({
+   position: myLatlng,
+   map: map,
+   draggable:true,
+   title:"Drag me!"
+});
+
 
 const creatGroup = () => {
    let classID = document.getElementById('ClassName')
@@ -238,6 +303,8 @@ const creatGroup = () => {
 
    document.getElementById('groupDetail').click();
 }
+
+
 
 
 const confirmPassword = (thisObject) => {

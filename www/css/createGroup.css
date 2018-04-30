@@ -1,5 +1,5 @@
-#groupBody{
-background-color: black;
+#createBody{
+ background-image: url("../img/search.jpg");
  background-position: center;
  background-size: cover;
  height: 90vh;
@@ -26,6 +26,7 @@ background-color: black;
  font-size: 5vw;
  text-align: center;
  display: inline-block;
+ color:white;
 }
 
 
@@ -42,12 +43,14 @@ background-color: black;
 
 
 #mapDiv {
+
 	width:70vw;
 	height: 50vh;
 	margin: auto;
 	border-color: black;
 	border-style: solid;
 }
+
 
 #createGroupBody{
   height: 200vh;

@@ -12,11 +12,13 @@
 
 #searchInput #searchTerm {
   font-size: 5.5vw;
-  width: 67vw;
+  width: 89vw;
   opacity: .5;
 }
 
 #searchInput button {
+  margin: 2vh 23vw;
+  width: 44vw;
   font-size: 6vw;
   background-color: white;
   border-style: none;

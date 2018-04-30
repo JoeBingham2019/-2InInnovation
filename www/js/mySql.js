@@ -48,7 +48,7 @@ var MySql = {
             document.getElementById('searchError').style.display = "none";
             localStorage.setItem("searchResult", JSON.stringify(queryReturned.Result));
 
-            document.getElementById('searchInput').style.padding = "20vh 5vw";
+            document.getElementById('searchInput').style.padding = "5vh 5vw";
             console.log(queryReturned.Result);
                 body        = document.getElementById('searchInput');
                 table       = document.createElement("table");
@@ -98,6 +98,7 @@ var MySql = {
                 error.innerHTML = "No Results. Please modify your search and try again.";
                 error.style.display = "block";
                 console.log(queryReturned.Result);
+                console.log(error);
             }
 
         }
