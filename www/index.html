@@ -75,7 +75,7 @@
       <!-------------------------------Tab 2: Create Account Page---------------------------------->
 
     <div id="createAccount"   class="tabContent" style="background-color: #8C1D40">
-      <div id='createAccountBody'>
+      <div id='createBody'>
         <br />
         <br />
 
@@ -167,7 +167,7 @@
 
    <div id="createGroupContent" class="tabContent">
      <div id="createGroupBody">
-       <h3 id='createGroupHeading'>Create a Group</h3>
+       <h3>Create a Group</h3>
          <div class="groupCreate">
          <label class="groupLabel">Class</label>
          <input class="groupInput" type='text' id='ClassName'>
@@ -204,7 +204,7 @@
          </div>
 
          <div class="groupCreate">
-           <button Type="button" onClick="creatGroup()" id="groupCreateButton">Create Group</button>
+           <button Type="button" id="groupCreateButton" onClick="creatGroup()">Create Group</button>
          </div>
 
      </div>
@@ -237,21 +237,24 @@
     <!----------------------------------Tab 3: Home Page---------------------------------->
 
     <div id="groupDetail"   class="tabContent">
-      <h3>Success!</h3>
+      
       <div id="detail">
-
         <label id='detailCourseName'></label>
           <label id='detailLocation'></label>
-
+          
           <label id='detailStudyDate'></label>
           <label id='detailStartTime'></label>
           <label id='detailEndTime'></label>
-
       </div>
       <div id="map">
-
+      
       </div>
-      <button type='button' onclick='join()'>Join!</button>
+        <br>
+
+      <div  id='groupButtonDiv'>
+
+      <button id='groupJoinButton' type='button' onclick='join()'>Join!</button>
+      </div>
     </div>
 
     <script type="text/javascript" src="./js/main.js"></script>
