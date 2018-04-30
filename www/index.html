@@ -45,7 +45,7 @@
       <li><a href="#" class="tabLink hiddenLink" id='mapPage'         onclick="showTab(event, 'search')">Map</a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'search')">Search</a></li>
       <li><a href="#" class="tabLink" id='createGroup'          onclick="showTab(event, 'createGroupContent' )">Create </a></li>
-      <li><a href="#" class="tabLink" id='profile'          onclick="showTab(event, 'profile')">Profile</a></li>
+      <!---<li><a href="#" class="tabLink" id='profile'          onclick="showTab(event, 'myProfile')">Profile</a></li>---->
       <li><a href="#" class="tabLink"           onclick="logout(event, 'logout')">Log Out</a></li>
     </ul>
 
@@ -63,7 +63,7 @@
               <input class='loginInput' type='Password' id='loginPassword' >
           </div>
           <p id='error'>Woops! Invalid Username or Password!</p>
-          <button id='loginButton' type='button' onclick='login()'>Log In</button>
+          <button id='loginButton' type='button' onclick='login();clearSearch()'>Log In</button>
           <button id='createButton' type='button' onclick='create()'>Create</button>
 
       </div>
@@ -119,17 +119,22 @@
         <div id='searchInput'>
           <input type='text' id='searchTerm' placeholder="ex. CIS 105" /><button type='button' onclick='search()'>Search</button>
           <div id='multiButtonSearch'>
-            <div class='button selectedButton' onclick='toggleButton(this)'>
+            <div class='button selectedButton' onclick='toggleButton(this);clearSearch()'>
               <label class='searchLabel '>Class</label>
               <input class='radioSearch' type='radio' name='search' id='searchClass' checked="checked">
             </div>
-            <div class='button' onclick='toggleButton(this)'>
+            <div class='button' onclick='toggleButton(this);clearSearch()'>
               <label class='searchLabel'>People</label>
               <input class='radioSearch' type='radio' name='search' id='searchPeople'>
             </div>
-           <div class='button' onclick='toggleButton(this)'>
+           <div class='button' onclick='toggleButton(this);clearSearch()'>
               <label class='searchLabel'>Location</label>
               <input class='radioSearch' type='radio' name='search' id='searchLocation'>
+            </div>
+          </div>
+          <div class='button' onclick='toggleButton(this);findMe()'>
+              <label class='searchLabel'>My Groups</label>
+              <input class='radioSearch' type='radio' name='search' id='searchMe'>
             </div>
           </div>
         </div>
@@ -198,7 +203,15 @@
      </div>
    </div>
 
+<!----------------------------------Tab 4: Profile Page--------------------------------
 
+    <div id="myProfile"   class="tabContent">
+      <button type='button' onclick='groupSearch()'>Show Your Groups</button>
+      <div id="myProfileResult">
+        
+      </div>
+
+    </div>-->
 
     <!----------------------------------Tab 3: Home Page---------------------------------->
 
