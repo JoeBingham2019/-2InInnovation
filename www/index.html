@@ -31,6 +31,8 @@
           <link rel="stylesheet" type="text/css" href="css/create.css" />
           <link rel="stylesheet" type="text/css" href="css/search.css" />
           <link rel="stylesheet" type="text/css" href="css/createGroup.css" />
+          <link rel="stylesheet" type="text/css" href="css/welcome.css" />
+          <link rel="stylesheet" type="text/css" href="css/groupDetail.css" />
           <script src="http://mysqljs.com/mysql.js"></script>
           <script type="text/javascript" src="./js/mySql.js"></script>
   </head>
@@ -43,9 +45,10 @@
       <li><a href="#" class="tabLink " id="login" onclick="showTab(event, 'LogIn'  )">Red  </a></li>
       <li><a href="#" class="tabLink " id="create" onclick="showTab(event, 'createAccount'  )">Red  </a></li>
       <li><a href="#" class="tabLink hiddenLink" id='mapPage'         onclick="showTab(event, 'search')">Map</a></li>
+      <li><a href="#" class="tabLink" id='primaryPage'         onclick="showTab(event, 'welcome')">Welcome</a></li>
       <li><a href="#" class="tabLink" id='secondPage'         onclick="showTab(event, 'search')">Search</a></li>
       <li><a href="#" class="tabLink" id='createGroup'          onclick="showTab(event, 'createGroupContent' )">Create </a></li>
-      <li><a href="#" class="tabLink" id='profile'          onclick="showTab(event, 'profile')">Profile</a></li>
+
       <li><a href="#" class="tabLink"           onclick="logout(event, 'logout')">Log Out</a></li>
     </ul>
 
@@ -63,7 +66,7 @@
               <input class='loginInput' type='Password' id='loginPassword' >
           </div>
           <p id='error'>Woops! Invalid Username or Password!</p>
-          <button id='loginButton' type='button' onclick='login()'>Log In</button>
+          <button id='loginButton' type='button' onclick='login();clearSearch()'>Log In</button>
           <button id='createButton' type='button' onclick='create()'>Create</button>
 
       </div>
@@ -110,30 +113,48 @@
       </div>
     </div>
 
+      <!----------------------------------Tab 3: Welcome Page---------------------------------->
+    <div id='welcomeBody'>
+    <div id="welcome"   class="tabContent">
+        <h3 id='welcomeHeading'>Welcome
+         Study Buddies</h3>
+        <h4 id='welcomeLabel'> It's Study Time!</h4>
+        <h2 id= 'welcomeList'> Create || Find || Join </h2>
 
 
-  <!----------------------------------Tab 3: Home Page---------------------------------->
+      </div>
+    </div>
+
+
+  <!----------------------------------Tab 4: Home Page---------------------------------->
 
     <div id="search"   class="tabContent">
       <div id='searchContainer'>
         <div id='searchInput'>
-          <input type='text' id='searchTerm' placeholder="ex. CIS 105" /><button type='button' onclick='search()'>Search</button>
+          <input type='text' id='searchTerm' placeholder="ex. CIS 105" />
           <div id='multiButtonSearch'>
-            <div class='button selectedButton' onclick='toggleButton(this)'>
+            <div class='button selectedButton' onclick='toggleButton(this);clearSearch()'>
               <label class='searchLabel '>Class</label>
               <input class='radioSearch' type='radio' name='search' id='searchClass' checked="checked">
             </div>
-            <div class='button' onclick='toggleButton(this)'>
+            <div class='button' onclick='toggleButton(this);clearSearch()'>
               <label class='searchLabel'>People</label>
               <input class='radioSearch' type='radio' name='search' id='searchPeople'>
             </div>
-           <div class='button' onclick='toggleButton(this)'>
+           <div class='button' onclick='toggleButton(this);clearSearch()'>
               <label class='searchLabel'>Location</label>
               <input class='radioSearch' type='radio' name='search' id='searchLocation'>
             </div>
           </div>
+          <div class='button' onclick='toggleButton(this);findMe()'>
+              <label class='searchLabel'>My Groups</label>
+              <input class='radioSearch' type='radio' name='search' id='searchMe'>
+            </div>
+            <button type='button' onclick='search()'>Search</button>
+          </div>
+          <p id='searchError'></p>
         </div>
-        <p id='searchError'></p>
+
       </div>
 
       <div id='searchResult'>
@@ -142,10 +163,10 @@
 
     </div>
 
-  <!-------------------------------Tab 3: Create Group Tap---------------------------------->
+  <!-------------------------------Tab 5: Create Group Tap---------------------------------->
 
    <div id="createGroupContent" class="tabContent">
-     <div id="createBody">
+     <div id="createGroupBody">
        <h3>Create a Group</h3>
          <div class="groupCreate">
          <label class="groupLabel">Class</label>
@@ -153,18 +174,9 @@
          </div>
          <div class="groupCreate">
          <label class="groupLabel"># of People</label>
-         <!-- <select class="groupInput" type='text' id='numOfPeople' value=''>
-           <option value="2">2</option>
-           <option value="3">3</option>
-           <option value="4">4</option>
-           <option value="5">5</option>
-           <option value="6">6</option>
-           <option value="7">7</option>
-           <option value="8">8</option>
-           <option value="9">9</option>
-           <option value="10">10</option>
-         </select> -->
-         <input class="groupInput" type='number' id='numOfPeople' value="2">
+
+         <input class="groupInput" type='number' id='numOfPeople' value="2" max=10 min=2>
+
          </div>
 
          <div id="mapDiv">
@@ -198,7 +210,15 @@
      </div>
    </div>
 
+<!----------------------------------Tab 4: Profile Page--------------------------------
 
+    <div id="myProfile"   class="tabContent">
+      <button type='button' onclick='groupSearch()'>Show Your Groups</button>
+      <div id="myProfileResult">
+
+      </div>
+
+    </div>-->
 
     <!----------------------------------Tab 3: Home Page---------------------------------->
 
@@ -217,8 +237,9 @@
     <!----------------------------------Tab 3: Home Page---------------------------------->
 
     <div id="groupDetail"   class="tabContent">
+      <h3>Success!</h3>
       <div id="detail">
-          <label id='detailCourseName'></label>
+        <label id='detailCourseName'></label>
           <label id='detailLocation'></label>
           
           <label id='detailStudyDate'></label>
