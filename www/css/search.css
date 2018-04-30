@@ -2,17 +2,18 @@
   background-image: url("../img/search.jpg");
   background-position: center;
   background-size: cover;
-  height: 90vh;
+  min-height: 90vh;
+  height: auto;
   width: 100vw;
 }
 
 #searchInput {
-  padding: 38vh 5vw;
+  padding: 25vh 5vw;
 }
 
 #searchInput #searchTerm {
   font-size: 5.5vw;
-  width: 67vw;
+  width: 90vw;
   opacity: .5;
 }
 
@@ -21,6 +22,9 @@
   background-color: white;
   border-style: none;
   opacity: .7;
+  width: 44vw;
+  margin: 2vh 23vw;
+  height: 5vh;
 }
 
 .radioSearch {
@@ -88,5 +92,62 @@
   color: black;
 
 
+}
+
+@media screen and (min-width: 550px){
+
+
+  #searchInput #searchTerm {
+    font-size: 3.5vw;
+    width: 90vw;
+    opacity: .5;
+  }
+
+  #searchInput {
+    padding: 10vh 5vw;
+  }
+
+  #searchInput button {
+    font-size: 4vw;
+    background-color: white;
+    border-style: none;
+    opacity: .7;
+    width: 30vw;
+    margin: 2vh 30vw;
+    height: 14vh;
+  }
+
+  .button {
+    float: left;
+    width: 21.5vw;
+    background-color: white;
+    margin: 1vh .5vw;
+    height: 12vh;
+    text-align: center;
+    opacity: .75;
+    font-size: 4vw;
+  }
+
+  .searchLabel {
+    text-align: center;
+    margin-top: 1.5vh;
+    margin-right: 2.5vw;
+    display: inline-block;
+    font-size: 4vh;
+  }
+
+  .selectedButton  {
+    background-color: #3f5caf;
+    color: white;
+  }
+
+  #resultsTable td {
+    padding: 4vh 0;
+
+  }
+
+  #searchError {
+    font-size: 4vw;
+  }
 }
 

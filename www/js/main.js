@@ -46,7 +46,9 @@ const hideElement = () => {
 
 function clearSearch(){
     document.getElementById('searchTerm').value = "";
-    document.getElementById('resultsTable').innerHTML = "";
+    if(document.getElementById('resultsTable') != null){
+        document.getElementById('resultsTable').innerHTML = "";
+    }
 }
 
 function findMe(){
@@ -273,6 +275,10 @@ const toggleButton = (clickedObject) => {
     clickedObject.classList.add("selectedButton");
     clickedObject.childNodes[3].setAttribute("checked", "checked");
 
+    if(clickedObject.id = 'myGroupButton'){
+        document.getElementById('searchTerm').value = localStorage.id;
+    }
+
 }
 
 function initMap(latNumber, lonNumber) {
@@ -313,7 +319,7 @@ const creatGroup = () => {
         //MySql.Execute(query, MySql._internalCreateJoinCallback);
         MySql.Execute(query, MySql._internalCreateJoinCallback);
         //showDetail(event, 'groupDetail', localStorage.selectedGroupId);
-        
+
     }
 
 }

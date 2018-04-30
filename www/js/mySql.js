@@ -117,11 +117,11 @@ var MySql = {
             var date = new Date(Object.values(queryReturned.Result[0])[5]);
             var dateString = date.toDateString();
             console.log(date);
-            document.getElementById('detailCourseName').innerHTML = "Course Name: "+ Object.values(queryReturned.Result[0])[1] + "<br/>";
-            document.getElementById('detailLocation').innerHTML = "Location: " + Object.values(queryReturned.Result[0])[4] + "<br/>";
-            document.getElementById('detailStudyDate').innerHTML = "Study Date: "+ dateString + "<br/>";
-            document.getElementById('detailStartTime').innerHTML = "Start Time: "+Object.values(queryReturned.Result[0])[6] + "<br/>";
-            document.getElementById('detailEndTime').innerHTML = "End Time" +Object.values(queryReturned.Result[0])[7] + "<br/>";
+            document.getElementById('detailCourseName').innerHTML = "<div id='detailsCourseName'>Course Name: "+ Object.values(queryReturned.Result[0])[1] + "</div><br/>";
+            document.getElementById('detailLocation').innerHTML = "<div class='detailsContainer'><span class='label'>Location:</span><span class='details'> " + Object.values(queryReturned.Result[0])[4] + "</span></div><br/>";
+            document.getElementById('detailStudyDate').innerHTML = "<div class='detailsContainer'><span class='label'>Study Date:</span><span class='details'> "+ dateString + "</span></div><br/>";
+            document.getElementById('detailStartTime').innerHTML = "<div class='detailsContainer'><span class='label'>Start Time:</span><span class='details'> "+Object.values(queryReturned.Result[0])[6] + "</span></div><br/>";
+            document.getElementById('detailEndTime').innerHTML = "<div class='detailsContainer'><span class='label'>End Time:</span><span class='details'> " +Object.values(queryReturned.Result[0])[7] + "</span></div><br/>";
             var lat, lon;
             lat = Object.values(queryReturned.Result[0])[2];
             lon = Object.values(queryReturned.Result[0])[3];
