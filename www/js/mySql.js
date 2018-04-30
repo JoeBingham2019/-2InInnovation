@@ -44,7 +44,7 @@ var MySql = {
         } else {
             if(queryReturned.Result.length > 0)
             {
-            console.log(queryReturned.Result);
+            //console.log(queryReturned.Result);
             document.getElementById('searchError').style.display = "none";
             localStorage.setItem("searchResult", JSON.stringify(queryReturned.Result));
 
@@ -115,7 +115,7 @@ var MySql = {
             //         JSON.stringify(queryReturned.Result, null, 2);
             //console.log(queryReturned.Result);
             var date = new Date(Object.values(queryReturned.Result[0])[5]);
-
+            console.log(date);
             document.getElementById('detailCourseName').innerHTML = "Course Name: "+ Object.values(queryReturned.Result[0])[1] + "<br/>";
             document.getElementById('detailLocation').innerHTML = "Location: " + Object.values(queryReturned.Result[0])[4] + "<br/>";
             document.getElementById('detailStudyDate').innerHTML = "Study Date: "+ date.getFullYear() + "-"+ date.getMonth() + "-" + date.getDay() + "<br/>";
@@ -138,6 +138,19 @@ var MySql = {
 
 
 
+
+           }
+
+   },
+    _internalCreateJoinCallback : function(queryReturned) {
+
+
+           if (!queryReturned.Success) {
+               alert(queryReturned.Error);
+           } else {
+                console.log(queryReturned.Result);
+                localStorage.selectedGroupId = Object.values(queryReturned.Result[0])[0];
+                join();
 
            }
 

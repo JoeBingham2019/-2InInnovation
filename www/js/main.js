@@ -96,7 +96,7 @@ function showTab(event, tabName) {
     document.getElementById(tabName).style.display = "block";
     event.currentTarget.className += " active";
 
-    document.getElementById('resultsTable').innerHTML = "";
+    //document.getElementById('resultsTable').innerHTML = "";
 }
 
 
@@ -304,8 +304,18 @@ const creatGroup = () => {
    console.log(groupInsert);
    MySql.Execute(groupInsert,MySql._internalJoinCallback);
 
-   document.getElementById('searchTerm').value = classID;
-   showTab(event, 'search');
+   //document.getElementById('searchTerm').value = classID;
+   //showTab(event, 'search');
+
+   var query = `SELECT * FROM studyGroup WHERE groupId=(SELECT MAX(groupId) FROM studyGroup);`;
+   console.log(query);
+   if(query != "error"){
+        //MySql.Execute(query, MySql._internalCreateJoinCallback);
+        MySql.Execute(query, MySql._internalCreateJoinCallback);
+        //showDetail(event, 'groupDetail', localStorage.selectedGroupId);
+        
+    }
+
 }
 
 
@@ -372,7 +382,7 @@ function join() {
    console.log(query);
    MySql.Execute(query, MySql._internalJoinCallback);
    console.log("success!");
-
+   //showDetail(event, 'groupDetail', localStorage.selectedGroupId);
    document.getElementById('secondPage').click();
 
 }
